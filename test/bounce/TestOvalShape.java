@@ -87,4 +87,15 @@ public class TestOvalShape {
         assertEquals("(oval 90,90,25,35)(oval 100,100,25,35)"
                 + "(oval 88,85,25,35)", painter.toString());
     }
+    @Test
+    public void testShapeMoveWithBounceOffTopAndLeft() {
+        OvalShape shape = new OvalShape(10, 90, -12, 15);
+        shape.paint(painter);
+        shape.move(125, 135);
+        shape.paint(painter);
+        shape.move(125, 135);
+        shape.paint(painter);
+        assertEquals("(oval 10,90,25,35)(oval 0,100,25,35)"
+                + "(oval 12,85,25,35)", painter.toString());
+    }
 }
