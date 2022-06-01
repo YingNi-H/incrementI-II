@@ -5,6 +5,7 @@ import java.awt.*;
 public class DynamicRectangleShape extends Shape {
 
     protected GraphicsPainter g;
+    protected static Color c = Color.CYAN;
 
 
 
@@ -27,8 +28,11 @@ public class DynamicRectangleShape extends Shape {
     public void paint(Painter painter) {
 
         painter.drawRect(x, y, width, height);
-        painter.setColor(Color.MAGENTA);
-        painter.fillRect(x, y, width, height);
+        painter.setColor(c);
+
+        if(c != null){
+            painter.fillRect(x, y, width, height);}
+
     }
 
 
@@ -39,15 +43,13 @@ public class DynamicRectangleShape extends Shape {
         if (nextX <= 0) {
             nextX = 0;
             deltaX = -deltaX;
+            c = Color.PINK;
 
-            this.g.setColor(Color.PINK);
-            this.g.fillRect(x,y,width,height);
 
         } else if (nextX + this.width >= width) {
             nextX = width - this.width;
             deltaX = -deltaX;
-            this.g.setColor(Color.CYAN);
-            this.g.fillRect(x,y,width,height);
+            c = Color.GREEN;
 
         }
 
@@ -55,10 +57,14 @@ public class DynamicRectangleShape extends Shape {
             nextY = 0;
             deltaY = -deltaY;
 
+            c = null;
+
 
         } else if (nextY + this.height >= height) {
             nextY = height - this.height;
             deltaY = -deltaY;
+
+            c = null;
         }
 
         x = nextX;
