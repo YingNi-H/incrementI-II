@@ -1,6 +1,6 @@
 package bounce;
 
-import java.awt.Graphics;
+import java.awt.*;
 
 /**
  * Implementation of the Painter interface that delegates drawing to a
@@ -38,5 +38,21 @@ public class GraphicsPainter implements Painter {
      */
     public void drawLine(int x1, int y1, int x2, int y2) {
         g.drawLine(x1, y1, x2, y2);
+    }
+
+    @Override
+    public void fillRect(int x, int y, int width, int height) {
+        g.fillRect(x,y,width,height);
+    }
+
+    @Override
+    public Color getColor() {
+        return g.getColor();
+    }
+
+    @Override
+    public void setColor(Color color) {
+        g.setColor(color);
+
     }
 }

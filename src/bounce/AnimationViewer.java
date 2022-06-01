@@ -47,6 +47,7 @@ public class AnimationViewer extends JPanel implements ActionListener {
         shapes.add(new OvalShape(30,30,3,2,80,50));
         shapes.add(new GemShape(40,40,1,3,80,50));
         shapes.add(new GemShape(50,50,2,2,30,40));
+        shapes.add(new DynamicRectangleShape(5,5,3,3,100,100));
 
         // Start the animation.
         timer.start();
