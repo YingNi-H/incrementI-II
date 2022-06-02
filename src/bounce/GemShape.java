@@ -3,9 +3,6 @@ package bounce;
 public class GemShape extends Shape{
 
 
-
-
-
     public GemShape() {
     }
 

@@ -4,10 +4,7 @@ import java.awt.*;
 
 public class DynamicRectangleShape extends Shape {
 
-    protected GraphicsPainter g;
     protected static Color c = Color.CYAN;
-
-
 
     public DynamicRectangleShape() {
         super();
