@@ -58,4 +58,9 @@ public class MockPainter implements Painter {
         log.append("(dynamicrectangle " + color + ")");
 
     }
+
+    @Override
+    public void translate(int x, int y) {
+
+    }
 }

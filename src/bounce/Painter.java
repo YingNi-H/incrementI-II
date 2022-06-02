@@ -33,4 +33,6 @@ public interface Painter {
 
     public void setColor(Color color);
 
+    public void translate(int x, int y);
+
 }

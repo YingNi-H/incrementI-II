@@ -25,10 +25,15 @@ public class DynamicRectangleShape extends Shape {
     public void paint(Painter painter) {
 
         painter.drawRect(x, y, width, height);
+        Color origin = painter.getColor();
         painter.setColor(c);
 
         if(c != null){
-            painter.fillRect(x, y, width, height);}
+            painter.fillRect(x, y, width, height);
+        }
+
+        painter.setColor(origin);
+
 
     }
 

@@ -27,9 +27,7 @@ public class TestDynamicRectangleShape {
         shape.paint(painter);
         shape.move(135, 10000);
         shape.paint(painter);
-        assertEquals("(rectangle 100,20,25,35)(dynamicrectangle java.awt.Color[r=0,g=255,b=255])(rectangle 100,20,25,35)" +
-                "(rectangle 110,35,25,35)(dynamicrectangle java.awt.Color[r=0,g=255,b=0])(rectangle 110,35,25,35)" +
-                "(rectangle 98,50,25,35)(dynamicrectangle java.awt.Color[r=0,g=255,b=0])(rectangle 98,50,25,35)", painter.toString());
+        assertEquals("(rectangle 100,20,25,35)(dynamicrectangle java.awt.Color[r=0,g=255,b=255])(rectangle 100,20,25,35)(dynamicrectangle null)(rectangle 110,35,25,35)(dynamicrectangle java.awt.Color[r=0,g=255,b=0])(rectangle 110,35,25,35)(dynamicrectangle null)(rectangle 98,50,25,35)(dynamicrectangle java.awt.Color[r=0,g=255,b=0])(rectangle 98,50,25,35)(dynamicrectangle null)", painter.toString());
     }
 
 
@@ -41,9 +39,7 @@ public class TestDynamicRectangleShape {
         shape.paint(painter);
         shape.move(10000, 10000);
         shape.paint(painter);
-        assertEquals("(rectangle 10,20,25,35)(dynamicrectangle null)" +
-                "(rectangle 0,35,25,35)(dynamicrectangle java.awt.Color[r=255,g=175,b=175])(rectangle 0,35,25,35)" +
-                "(rectangle 12,50,25,35)(dynamicrectangle java.awt.Color[r=255,g=175,b=175])(rectangle 12,50,25,35)", painter.toString());
+        assertEquals("(rectangle 10,20,25,35)(dynamicrectangle null)(dynamicrectangle null)(rectangle 0,35,25,35)(dynamicrectangle java.awt.Color[r=255,g=175,b=175])(rectangle 0,35,25,35)(dynamicrectangle null)(rectangle 12,50,25,35)(dynamicrectangle java.awt.Color[r=255,g=175,b=175])(rectangle 12,50,25,35)(dynamicrectangle null)", painter.toString());
     }
 
 
@@ -55,9 +51,7 @@ public class TestDynamicRectangleShape {
         shape.paint(painter);
         shape.move(135, 135);
         shape.paint(painter);
-        assertEquals("(rectangle 90,90,25,35)(dynamicrectangle null)" +
-                "(rectangle 90,100,25,35)(dynamicrectangle null)" +
-                "(rectangle 90,85,25,35)(dynamicrectangle null)", painter.toString());
+        assertEquals("(rectangle 90,90,25,35)(dynamicrectangle null)(dynamicrectangle null)(rectangle 90,100,25,35)(dynamicrectangle null)(dynamicrectangle null)(rectangle 90,85,25,35)(dynamicrectangle null)(dynamicrectangle null)", painter.toString());
     }
     @Test
     public void testShapeMoveWithBounceOffTop() {
@@ -67,9 +61,7 @@ public class TestDynamicRectangleShape {
         shape.paint(painter);
         shape.move(125, 135);
         shape.paint(painter);
-        assertEquals("(rectangle 50,90,25,35)(dynamicrectangle null)" +
-                "(rectangle 50,100,25,35)(dynamicrectangle null)"
-                + "(rectangle 50,85,25,35)(dynamicrectangle null)", painter.toString());
+        assertEquals("(rectangle 50,90,25,35)(dynamicrectangle null)(dynamicrectangle null)(rectangle 50,100,25,35)(dynamicrectangle null)(dynamicrectangle null)(rectangle 50,85,25,35)(dynamicrectangle null)(dynamicrectangle null)", painter.toString());
     }
 
 
@@ -81,9 +73,7 @@ public class TestDynamicRectangleShape {
         shape.paint(painter);
         shape.move(125, 135);
         shape.paint(painter);
-        assertEquals("(rectangle 90,90,25,35)(dynamicrectangle java.awt.Color[r=0,g=255,b=0])(rectangle 90,90,25,35)" +
-                "(rectangle 100,100,25,35)(dynamicrectangle null)" +
-                "(rectangle 88,85,25,35)(dynamicrectangle null)", painter.toString());
+        assertEquals("(rectangle 90,90,25,35)(dynamicrectangle java.awt.Color[r=0,g=255,b=0])(rectangle 90,90,25,35)(dynamicrectangle null)(rectangle 100,100,25,35)(dynamicrectangle null)(dynamicrectangle null)(rectangle 88,85,25,35)(dynamicrectangle null)(dynamicrectangle null)", painter.toString());
     }
     @Test
     public void testShapeMoveWithBounceOffTopAndLeft() {
@@ -93,9 +83,7 @@ public class TestDynamicRectangleShape {
         shape.paint(painter);
         shape.move(125, 135);
         shape.paint(painter);
-        assertEquals("(rectangle 10,90,25,35)(dynamicrectangle java.awt.Color[r=255,g=175,b=175])(rectangle 10,90,25,35)" +
-                "(rectangle 0,100,25,35)(dynamicrectangle null)" +
-                "(rectangle 12,85,25,35)(dynamicrectangle null)", painter.toString());
+        assertEquals("(rectangle 10,90,25,35)(dynamicrectangle java.awt.Color[r=255,g=175,b=175])(rectangle 10,90,25,35)(dynamicrectangle null)(rectangle 0,100,25,35)(dynamicrectangle null)(dynamicrectangle null)(rectangle 12,85,25,35)(dynamicrectangle null)(dynamicrectangle null)", painter.toString());
     }
 
     @Test
@@ -106,9 +94,7 @@ public class TestDynamicRectangleShape {
         shape.paint(painter);
         shape.move(125, 135);
         shape.paint(painter);
-        assertEquals("(rectangle 10,90,25,35)(dynamicrectangle null)" +
-                "(rectangle 0,100,25,35)(dynamicrectangle null)" +
-                "(rectangle 12,85,25,35)(dynamicrectangle null)", painter.toString());
+        assertEquals("(rectangle 10,90,25,35)(dynamicrectangle null)(dynamicrectangle null)(rectangle 0,100,25,35)(dynamicrectangle null)(dynamicrectangle null)(rectangle 12,85,25,35)(dynamicrectangle null)(dynamicrectangle null)", painter.toString());
     }
     @Test
     public void testShapeMoveWithBounceOffTopAndRight() {
@@ -118,8 +104,6 @@ public class TestDynamicRectangleShape {
         shape.paint(painter);
         shape.move(125, 135);
         shape.paint(painter);
-        assertEquals("(rectangle 90,90,25,35)(dynamicrectangle null)" +
-                "(rectangle 100,100,25,35)(dynamicrectangle null)" +
-                "(rectangle 88,85,25,35)(dynamicrectangle null)", painter.toString());
+        assertEquals("(rectangle 90,90,25,35)(dynamicrectangle null)(dynamicrectangle null)(rectangle 100,100,25,35)(dynamicrectangle null)(dynamicrectangle null)(rectangle 88,85,25,35)(dynamicrectangle null)(dynamicrectangle null)", painter.toString());
     }
 }

@@ -33,12 +33,16 @@ public class AnimationViewer extends JPanel implements ActionListener {
 
     private Timer timer = new Timer(DELAY, this);
 
+    private List<Shape> nestingShapes;
+
     /**
      * Creates an AnimationViewer instance with a list of Shape objects and
      * starts the animation.
      */
     public AnimationViewer() {
         shapes = new ArrayList<Shape>();
+
+//        nestingShapes = new ArrayList<>();
 
         // Populate the list of Shapes.
         shapes.add(new RectangleShape(0, 0, 2, 3));
@@ -47,8 +51,27 @@ public class AnimationViewer extends JPanel implements ActionListener {
         shapes.add(new OvalShape(30,30,3,2,80,50));
         shapes.add(new GemShape(40,40,1,3,80,50));
         shapes.add(new GemShape(50,50,2,2,30,40));
-        shapes.add(new BorderShape(15,15,3,2,50,50));
+
         shapes.add(new DynamicRectangleShape(5,5,3,3,100,100));
+
+        shapes.add(new BorderShape(15,15,3,2,50,50));
+
+        NestingShape midRectangleShape = new NestingShape(65, 65, 2,3,150,150);
+        NestingShape midOvalShape = new NestingShape(75, 75, 3,2,130,130);
+        GemShape gemShape = new GemShape(85, 85, 4,4,110,110);
+
+        NestingShape nestingShape = new NestingShape(60,60,2,2,190,190);
+
+        nestingShape.add(midRectangleShape);
+        midRectangleShape.add(midOvalShape);
+        midOvalShape.add(gemShape);
+        System.out.println(nestingShape.shapeCount());
+        System.out.println(nestingShape.shapeAt(0));
+
+        shapes.add(nestingShape);
+
+
+
 
 
         // Start the animation.

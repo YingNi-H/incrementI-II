@@ -1,5 +1,8 @@
 package bounce;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Abstract superclass to represent the general concept of a Shape. This class
  * defines state common to all special kinds of Shape instances and implements
@@ -35,6 +38,10 @@ public abstract class Shape {
     protected int width;
 
     protected int height;
+
+    protected NestingShape nestingShape;
+
+    protected List<Shape> nestingShapes;
     // ===
 
     /**
@@ -161,5 +168,44 @@ public abstract class Shape {
      */
     public String toString() {
         return getClass().getName();
+    }
+
+    public NestingShape parent (Shape shape){
+        nestingShape = new NestingShape();
+        nestingShapes = new ArrayList<Shape>();
+        if(nestingShapes.contains(shape)){
+            return nestingShape;
+        }else{
+            return null;
+        }
+
+    }
+
+    public List<Shape> path(){
+        NestingShape root = new NestingShape ();
+        NestingShape intermediate = new NestingShape ();
+        Shape oval = new OvalShape ();
+        root.add(intermediate);
+        intermediate.add(oval);
+
+        List<Shape> path = new ArrayList<>();
+        path.add(root);
+        path.add(intermediate);
+        path.add(oval);
+
+
+        path.add(this);
+        for(Shape n : nestingShapes){
+            if(n instanceof NestingShape){
+                List<Shape> moreNestingShapes = ((NestingShape)n).path();
+                path.addAll(moreNestingShapes);
+            }else{
+                path.add(n);
+            }
+        }
+
+        return path;
+
+
     }
 }

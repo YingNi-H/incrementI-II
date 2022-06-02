@@ -12,14 +12,6 @@ public class OvalShape extends Shape {
 
 
 
-    /**
-     *
-     * @param x position.
-     * @param y position.
-     * @param deltaX speed and direction for horizontal axis.
-     * @param deltaY speed and direction for vertical axis.
-     */
-
     public OvalShape(int x, int y, int deltaX, int deltaY) {
         super(x, y, deltaX, deltaY);
     }
@@ -35,5 +27,7 @@ public class OvalShape extends Shape {
         painter.drawOval(x, y, width, height);
 
     }
+
+
 
 }

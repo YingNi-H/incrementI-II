@@ -55,4 +55,9 @@ public class GraphicsPainter implements Painter {
         g.setColor(color);
 
     }
+
+    @Override
+    public void translate(int x, int y) {
+        g.translate(x,y);
+    }
 }
