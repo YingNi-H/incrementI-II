@@ -184,25 +184,27 @@ public abstract class Shape {
     public List<Shape> path(){
         NestingShape root = new NestingShape ();
         NestingShape intermediate = new NestingShape ();
-        Shape oval = new OvalShape ();
+        NestingShape bottom = new NestingShape ();
+        Shape gem = new GemShape ();
         root.add(intermediate);
-        intermediate.add(oval);
+        intermediate.add(bottom);
+        intermediate.add(gem);
 
         List<Shape> path = new ArrayList<>();
         path.add(root);
         path.add(intermediate);
-        path.add(oval);
+        path.add(gem);
 
 
-        path.add(this);
-        for(Shape n : nestingShapes){
-            if(n instanceof NestingShape){
-                List<Shape> moreNestingShapes = ((NestingShape)n).path();
-                path.addAll(moreNestingShapes);
-            }else{
-                path.add(n);
-            }
-        }
+//        path.add(this);
+//        for(Shape n : nestingShapes){
+//            if(n instanceof NestingShape){
+//                List<Shape> moreNestingShapes = ((NestingShape)n).path();
+//                path.addAll(moreNestingShapes);
+//            }else{
+//                path.add(n);
+//            }
+//        }
 
         return path;
 

@@ -29,11 +29,13 @@ public class NestingShape extends Shape{
 
     @Override
     public void paint(Painter painter) {
-//        painter.translate(x,y);
-        painter.drawRect(x,y,width,height);
-        painter.drawRect(x+5, y+5, width-40,height-40);
-        painter.drawOval(x+15, y+15, width-60,height-60);
 
+        painter.drawRect(x,y,width,height);
+        painter.translate(x,y);
+        painter.drawRect(x+5, y+5, width-40,height-40);
+        painter.translate(x,y);
+        painter.drawOval(x+15, y+15, width-60,height-60);
+        painter.translate(x,y);
         painter.drawLine(x+25, y+65, x+25 + (width-80)/3, y+65 - (height-80)/2);
         painter.drawLine(x+25 + (width-80)/3, y+65 - (height-80)/2, x+25 + (width-80)/3*2, y+65 - (height-80)/2);
         painter.drawLine(x+25 + (width-80)/3*2, y+65 - (height-80)/2, x+25 + (width-80), y+65);
@@ -41,25 +43,30 @@ public class NestingShape extends Shape{
         painter.drawLine(x+25 + (width-80)/3*2, y+65 + (height-80)/2, x+25 + (width-80)/3, y+65 + (height-80)/2);
         painter.drawLine(x+25 + (width-80)/3, y+65 + (height-80)/2, x+25, y+65);
 
+        painter.translate(0,0);
+
 
 
 
     }
 
 //    public void move( int width , int height ){
+//
 //        for(Shape s : shapes){
-//            if(! s.equals(shapes.get(0))){
+//            if(!s.equals(shapes.get(0))){
 //                this.width = width;
 //                this.height = height;
 //            }
 //        }
 //
 //
+//
+//
 //    }
 
     public void add(Shape shape) throws IllegalArgumentException{
 
-        if(!shapes.contains(shape) ){
+        if(!shapes.contains(shape)  ){
 
 //            && shape.width < shapes.get(0).width
             shapes.add(shape);

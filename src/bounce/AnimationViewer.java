@@ -51,22 +51,23 @@ public class AnimationViewer extends JPanel implements ActionListener {
         shapes.add(new OvalShape(30,30,3,2,80,50));
         shapes.add(new GemShape(40,40,1,3,80,50));
         shapes.add(new GemShape(50,50,2,2,30,40));
-
         shapes.add(new DynamicRectangleShape(5,5,3,3,100,100));
-
         shapes.add(new BorderShape(15,15,3,2,50,50));
 
-        NestingShape midRectangleShape = new NestingShape(65, 65, 2,3,150,150);
-        NestingShape midOvalShape = new NestingShape(75, 75, 3,2,130,130);
-        GemShape gemShape = new GemShape(85, 85, 4,4,110,110);
+        NestingShape midRectangleShape = new NestingShape(5, 5, 1,1,150,150);
+        NestingShape bottomOvalShape = new NestingShape(15, 15, 2,2,130,130);
+        GemShape gemShape = new GemShape(25, 25, 5,5,110,110);
 
         NestingShape nestingShape = new NestingShape(60,60,2,2,190,190);
 
         nestingShape.add(midRectangleShape);
-        midRectangleShape.add(midOvalShape);
-        midOvalShape.add(gemShape);
+        midRectangleShape.add(bottomOvalShape);
+        midRectangleShape.add(gemShape);
         System.out.println(nestingShape.shapeCount());
         System.out.println(nestingShape.shapeAt(0));
+        System.out.println(midRectangleShape.shapeCount());
+        System.out.println(midRectangleShape.shapeAt(0));
+        System.out.println(gemShape.path().size());
 
         shapes.add(nestingShape);
 

@@ -61,6 +61,8 @@ public class MockPainter implements Painter {
 
     @Override
     public void translate(int x, int y) {
+        log.append("(nestingshape " + 0 + "," + 0 + ")");
+
 
     }
 }
