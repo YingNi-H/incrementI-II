@@ -9,9 +9,6 @@ public class OvalShape extends Shape {
         super();
     }
 
-
-
-
     public OvalShape(int x, int y, int deltaX, int deltaY) {
         super(x, y, deltaX, deltaY);
     }

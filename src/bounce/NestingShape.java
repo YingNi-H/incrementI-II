@@ -32,43 +32,51 @@ public class NestingShape extends Shape{
 
         painter.drawRect(x,y,width,height);
         painter.translate(x,y);
-        painter.drawRect(x+5, y+5, width-40,height-40);
-        painter.translate(x,y);
-        painter.drawOval(x+15, y+15, width-60,height-60);
-        painter.translate(x,y);
-        painter.drawLine(x+25, y+65, x+25 + (width-80)/3, y+65 - (height-80)/2);
-        painter.drawLine(x+25 + (width-80)/3, y+65 - (height-80)/2, x+25 + (width-80)/3*2, y+65 - (height-80)/2);
-        painter.drawLine(x+25 + (width-80)/3*2, y+65 - (height-80)/2, x+25 + (width-80), y+65);
-        painter.drawLine(x+25 + (width-80), y+65, x+25 + (width-80)/3*2, y+65 + (height-80)/2);
-        painter.drawLine(x+25 + (width-80)/3*2, y+65 + (height-80)/2, x+25 + (width-80)/3, y+65 + (height-80)/2);
-        painter.drawLine(x+25 + (width-80)/3, y+65 + (height-80)/2, x+25, y+65);
+//        painter.drawRect(x+5, y+5, width-40,height-40);
+//        painter.translate(x,y);
+//        painter.drawOval(x+15, y+15, width-60,height-60);
+//        painter.translate(x,y);
+//        painter.drawLine(x+25, y+65, x+25 + (width-80)/3, y+65 - (height-80)/2);
+//        painter.drawLine(x+25 + (width-80)/3, y+65 - (height-80)/2, x+25 + (width-80)/3*2, y+65 - (height-80)/2);
+//        painter.drawLine(x+25 + (width-80)/3*2, y+65 - (height-80)/2, x+25 + (width-80), y+65);
+//        painter.drawLine(x+25 + (width-80), y+65, x+25 + (width-80)/3*2, y+65 + (height-80)/2);
+//        painter.drawLine(x+25 + (width-80)/3*2, y+65 + (height-80)/2, x+25 + (width-80)/3, y+65 + (height-80)/2);
+//        painter.drawLine(x+25 + (width-80)/3, y+65 + (height-80)/2, x+25, y+65);
 
-        painter.translate(0,0);
+        for(Shape s : shapes){
+
+            s.paint(painter);
+        }
+
+        painter.translate(-x,-y);
 
 
 
 
     }
 
-//    public void move( int width , int height ){
-//
-//        for(Shape s : shapes){
-//            if(!s.equals(shapes.get(0))){
-//                this.width = width;
-//                this.height = height;
-//            }
-//        }
-//
-//
-//
-//
-//    }
+    public void move( int width , int height ){
+//        nestingShape.move(width,height);
+        super.move(width, height);
+
+        for(Shape s : shapes){
+
+           width = this.width ;
+           height = this.height ;
+           s.move(this.width, this.height);
+
+        }
+
+    }
 
     public void add(Shape shape) throws IllegalArgumentException{
 
-        if(!shapes.contains(shape)  ){
+        if(!shapes.contains(shape)  && shape.parent == null
+                && shape.x >= this.x && shape.y >= this.y
+                && (shape.x + shape.width) <= (this.x + this.width)
+                && (shape.y + shape.height) <= (this.y + this.height)){
 
-//            && shape.width < shapes.get(0).width
+            shape.parent = this;
             shapes.add(shape);
         }else{
             throw new IllegalArgumentException("This shape can't fit in or has already contained by this NestingShape!");
@@ -78,6 +86,7 @@ public class NestingShape extends Shape{
 
     public void remove(Shape shape ){
         shapes.remove(shape);
+        shape.parent = null;
     }
 
     public Shape shapeAt ( int index ) throws IndexOutOfBoundsException{
@@ -91,13 +100,14 @@ public class NestingShape extends Shape{
 
     public int shapeCount (){return shapes.size();}
 
-    public int indexOf(Shape shape ){
+    public int indexOf(Shape shape){
+
         if(!shapes.contains(shape)){
             return -1;
+
         }else{
-        int index = 0;
-        shape = shapes.get(index);
-        return index;
+
+            return shapes.indexOf(shape);
         }
     }
 

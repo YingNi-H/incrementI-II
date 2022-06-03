@@ -39,7 +39,7 @@ public abstract class Shape {
 
     protected int height;
 
-    protected NestingShape nestingShape;
+    protected NestingShape parent;
 
     protected List<Shape> nestingShapes;
     // ===
@@ -170,41 +170,33 @@ public abstract class Shape {
         return getClass().getName();
     }
 
-    public NestingShape parent (Shape shape){
-        nestingShape = new NestingShape();
-        nestingShapes = new ArrayList<Shape>();
-        if(nestingShapes.contains(shape)){
-            return nestingShape;
-        }else{
-            return null;
-        }
+    public NestingShape parent (){
+        return this.parent;
 
     }
 
     public List<Shape> path(){
-        NestingShape root = new NestingShape ();
-        NestingShape intermediate = new NestingShape ();
-        NestingShape bottom = new NestingShape ();
-        Shape gem = new GemShape ();
-        root.add(intermediate);
-        intermediate.add(bottom);
-        intermediate.add(gem);
+//        NestingShape root = new NestingShape ();
+//        NestingShape intermediate = new NestingShape ();
+//        NestingShape bottom = new NestingShape ();
+//        Shape gem = new GemShape ();
+//        root.add(intermediate);
+//        intermediate.add(bottom);
+//        intermediate.add(gem);
 
         List<Shape> path = new ArrayList<>();
-        path.add(root);
-        path.add(intermediate);
-        path.add(gem);
-
-
+//        path.add(root);
+//        path.add(intermediate);
+//        path.add(gem);
+//
+//
 //        path.add(this);
-//        for(Shape n : nestingShapes){
-//            if(n instanceof NestingShape){
-//                List<Shape> moreNestingShapes = ((NestingShape)n).path();
-//                path.addAll(moreNestingShapes);
-//            }else{
-//                path.add(n);
-//            }
-//        }
+        for(Shape n : nestingShapes){
+            path.add(n);
+            while(n.parent != null){
+                path.add(n.parent);
+            }
+        }
 
         return path;
 

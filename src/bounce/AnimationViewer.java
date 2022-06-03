@@ -42,8 +42,6 @@ public class AnimationViewer extends JPanel implements ActionListener {
     public AnimationViewer() {
         shapes = new ArrayList<Shape>();
 
-//        nestingShapes = new ArrayList<>();
-
         // Populate the list of Shapes.
         shapes.add(new RectangleShape(0, 0, 2, 3));
         shapes.add(new RectangleShape(10, 10, 5, 7));
@@ -54,24 +52,19 @@ public class AnimationViewer extends JPanel implements ActionListener {
         shapes.add(new DynamicRectangleShape(5,5,3,3,100,100));
         shapes.add(new BorderShape(15,15,3,2,50,50));
 
-        NestingShape midRectangleShape = new NestingShape(5, 5, 1,1,150,150);
-        NestingShape bottomOvalShape = new NestingShape(15, 15, 2,2,130,130);
-        GemShape gemShape = new GemShape(25, 25, 5,5,110,110);
+        NestingShape midRectangleShape = new NestingShape(65, 65, 1,1,150,150);
+        NestingShape bottomRectangleShape = new NestingShape(75, 75, -2,2,100,100);
+        OvalShape oShape = new OvalShape(85, 85, 5,-2,50,50);
 
-        NestingShape nestingShape = new NestingShape(60,60,2,2,190,190);
+        NestingShape nestingShape = new NestingShape(60,60,2,2,250,250);
 
         nestingShape.add(midRectangleShape);
-        midRectangleShape.add(bottomOvalShape);
-        midRectangleShape.add(gemShape);
-        System.out.println(nestingShape.shapeCount());
-        System.out.println(nestingShape.shapeAt(0));
-        System.out.println(midRectangleShape.shapeCount());
-        System.out.println(midRectangleShape.shapeAt(0));
-        System.out.println(gemShape.path().size());
+        midRectangleShape.add(bottomRectangleShape);
+//        midRectangleShape.add(bottomRectangleShape);
+        nestingShape.add(oShape);
+
 
         shapes.add(nestingShape);
-
-
 
 
 

@@ -3,47 +3,39 @@ package bounce;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 
-/**
- * A class that implements test cases aimed at identifying bugs in the
- * implementations of classes Shape and RectangleShape.
- *
- * @author Ian Warren
- */
+
 public class TestGemShape {
-    // Fixture object that is used by the tests.
+
     private MockPainter painter;
 
-    /**
-     * This method is called automatically by the JUnit test-runner immediately
-     * before each @Test method is executed. setUp() recreates the fixture so
-     * that there no side effects from running individual tests.
-     */
+
     @Before
     public void setUp() {
         painter = new MockPainter();
     }
 
-    /**
-     * Test to perform a simple (non-bouncing) movement, and to ensure that a
-     * Shape's position after the movement is correct.
-     */
+
     @Test
-    public void testSimpleMove() {
-        GemShape shape = new GemShape(100, 20, 12, 15);
+    public void testSmall() {
+        GemShape shape = new GemShape(100, 20, 0, 0,30,30);
         shape.paint(painter);
-        shape.move(500, 500);
-        shape.paint(painter);
-        assertEquals("(line 100,20,112,20)(line 112,20,112,55)(line 112,55,100,55)(line 100,55,100,20)(line 112,35,124,35)(line 124,35,124,70)(line 124,70,112,70)(line 112,70,112,35)",
-                painter.toString());
+        assertEquals("(line 100,20,115,20)(line 115,20,115,50)(line 115,50,100,50)(line 100,50,100,20)", painter.toString());
     }
 
-    /**
-     * Test to perform a bounce movement off the right-most boundary and to
-     * ensure that the Shape's position after the movement is correct.
-     */
+    @Test
+    public void testBig() {
+        GemShape shape = new GemShape(100, 20, 0, 0,50,50);
+        shape.paint(painter);
+        assertEquals("(line 100,20,116,-5)(line 116,-5,132,-5)(line 132,-5,150,20)(line 150,20,132,45)(line 132,45,116,45)(line 116,45,100,20)", painter.toString());
+    }
+
+
     @Test
     public void testShapeMoveWithBounceOffRight() {
         GemShape shape = new GemShape(100, 20, 12, 15);
@@ -55,10 +47,7 @@ public class TestGemShape {
         assertEquals("(line 100,20,112,20)(line 112,20,112,55)(line 112,55,100,55)(line 100,55,100,20)(line 110,35,122,35)(line 122,35,122,70)(line 122,70,110,70)(line 110,70,110,35)(line 98,50,110,50)(line 110,50,110,85)(line 110,85,98,85)(line 98,85,98,50)", painter.toString());
     }
 
-    /**
-     * Test to perform a bounce movement off the left-most boundary and to
-     * ensure that the Shape's position after the movement is correct.
-     */
+
     @Test
     public void testShapeMoveWithBounceOffLeft() {
         GemShape shape = new GemShape(10, 20, -12, 15);
@@ -70,10 +59,7 @@ public class TestGemShape {
         assertEquals("(line 10,20,22,20)(line 22,20,22,55)(line 22,55,10,55)(line 10,55,10,20)(line 0,35,12,35)(line 12,35,12,70)(line 12,70,0,70)(line 0,70,0,35)(line 12,50,24,50)(line 24,50,24,85)(line 24,85,12,85)(line 12,85,12,50)", painter.toString());
     }
 
-    /**
-     * Test to perform a bounce movement off the bottom right corner and to
-     * ensure that the Shape's position after the movement is correct.
-     */
+
     @Test
     public void testShapeMoveWithBounceOffBottomAndRight() {
         GemShape shape = new GemShape(90, 90, 12, 15);
