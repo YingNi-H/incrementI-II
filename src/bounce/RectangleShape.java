@@ -50,6 +50,8 @@ public class RectangleShape extends Shape {
      * Paints this RectangleShape object using the supplied Painter object.
      */
     public void paint(Painter painter) {
+
         painter.drawRect(x, y, width, height);
+        painter.drawCentredText("[+_+]", x,y+15);
     }
 }

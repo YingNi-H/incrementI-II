@@ -36,6 +36,7 @@ public class GemShape extends Shape{
 
 
         }
+        painter.drawCentredText("<~v~>", x,y+6);
 
 
     }

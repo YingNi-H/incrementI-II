@@ -22,6 +22,7 @@ public class OvalShape extends Shape {
     @Override
     public void paint(Painter painter) {
         painter.drawOval(x, y, width, height);
+        painter.drawCentredText("OO",x+13,y+33);
 
     }
 

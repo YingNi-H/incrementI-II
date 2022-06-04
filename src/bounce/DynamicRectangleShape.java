@@ -32,7 +32,11 @@ public class DynamicRectangleShape extends Shape {
             painter.fillRect(x, y, width, height);
         }
 
+        painter.drawCentredText("**********", x+7,y+27);
+
         painter.setColor(origin);
+
+
 
 
     }

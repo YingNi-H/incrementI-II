@@ -44,13 +44,13 @@ public class AnimationViewer extends JPanel implements ActionListener {
 
         // Populate the list of Shapes.
         shapes.add(new RectangleShape(0, 0, 2, 3));
-        shapes.add(new RectangleShape(10, 10, 5, 7));
+        shapes.add(new RectangleShape(10, 10, 3, -1));
         shapes.add(new OvalShape(20,20,2,3,80,120));
         shapes.add(new OvalShape(30,30,3,2,80,50));
         shapes.add(new GemShape(40,40,1,3,80,50));
         shapes.add(new GemShape(50,50,2,2,30,39));
         shapes.add(new DynamicRectangleShape(5,5,3,3,100,100));
-        shapes.add(new BorderShape(15,15,3,2,50,50));
+        shapes.add(new BorderShape(15,15,3,2,80,80));
 
         NestingShape midRectangleShape = new NestingShape(65, 65, 1,1,150,150);
         NestingShape bottomRectangleShape = new NestingShape(75, 75, -2,2,100,100);

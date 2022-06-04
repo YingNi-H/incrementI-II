@@ -60,4 +60,9 @@ public class GraphicsPainter implements Painter {
     public void translate(int x, int y) {
         g.translate(x,y);
     }
+
+    @Override
+    public void drawCentredText(String str, int x, int y) {
+        g.drawString(str,x,y);
+    }
 }
