@@ -20,7 +20,7 @@ public class GemShape extends Shape{
 
     @Override
     public void paint(Painter painter) {
-        if(width >= 40) {
+        if(width > 40) {
             painter.drawLine(x, y, x + width/3, y - height/2);
             painter.drawLine(x + width/3, y - height/2, x + width/3*2, y - height/2);
             painter.drawLine(x + width/3*2, y - height/2, x + width, y);

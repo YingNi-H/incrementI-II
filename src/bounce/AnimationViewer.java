@@ -48,7 +48,7 @@ public class AnimationViewer extends JPanel implements ActionListener {
         shapes.add(new OvalShape(20,20,2,3,80,120));
         shapes.add(new OvalShape(30,30,3,2,80,50));
         shapes.add(new GemShape(40,40,1,3,80,50));
-        shapes.add(new GemShape(50,50,2,2,30,40));
+        shapes.add(new GemShape(50,50,2,2,30,39));
         shapes.add(new DynamicRectangleShape(5,5,3,3,100,100));
         shapes.add(new BorderShape(15,15,3,2,50,50));
 
@@ -62,6 +62,7 @@ public class AnimationViewer extends JPanel implements ActionListener {
         midRectangleShape.add(bottomRectangleShape);
 //        midRectangleShape.add(bottomRectangleShape);
         nestingShape.add(oShape);
+        System.out.println(nestingShape.shapeCount());
 
 
         shapes.add(nestingShape);

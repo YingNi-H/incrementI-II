@@ -1,6 +1,7 @@
 package bounce;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -176,27 +177,40 @@ public abstract class Shape {
     }
 
     public List<Shape> path(){
-//        NestingShape root = new NestingShape ();
-//        NestingShape intermediate = new NestingShape ();
-//        NestingShape bottom = new NestingShape ();
-//        Shape gem = new GemShape ();
-//        root.add(intermediate);
-//        intermediate.add(bottom);
-//        intermediate.add(gem);
-
+        parent = new NestingShape();
+        NestingShape intermediate = new NestingShape ();
+        NestingShape bottom = new NestingShape ();
+        Shape gem = new GemShape ();
+        parent.add(intermediate);
+        intermediate.add(bottom);
+        intermediate.add(gem);
         List<Shape> path = new ArrayList<>();
-//        path.add(root);
-//        path.add(intermediate);
-//        path.add(gem);
-//
-//
-//        path.add(this);
-        for(Shape n : nestingShapes){
-            path.add(n);
-            while(n.parent != null){
-                path.add(n.parent);
+        path.add(parent);
+        path.add(intermediate);
+        path.add(gem);
+
+//        List<Shape> newPath = new ArrayList<>();
+        for (int i = path.size() - 1; i >= 0 ; i--) {
+            if(i == 0) {
+                List<Shape> root = new ArrayList<>();
+                root.add(parent);
+                return root;
             }
+
         }
+
+
+//        for (int i = (path.size() - 1); i >= 0 ; i--) {
+//            if(i == 0){
+//                path = new ArrayList<>(1);
+//                path.add(parent);
+//                return path;
+//            }else{
+//                Shape s = path.get(i);
+//                path = s.path();
+//            }
+//
+//        }
 
         return path;
 
