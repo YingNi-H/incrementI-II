@@ -38,20 +38,14 @@ public class NestingShape extends Shape{
         painter.drawRect(x,y,width,height);
 //        painter.drawCentredText("THIS IS SO COOL ^_^",x+10,y+20);
         painter.translate(x,y);
-//        painter.drawRect(x+5, y+5, width-40,height-40);
-//        painter.translate(x,y);
-//        painter.drawOval(x+15, y+15, width-60,height-60);
-//        painter.translate(x,y);
-//        painter.drawLine(x+25, y+65, x+25 + (width-80)/3, y+65 - (height-80)/2);
-//        painter.drawLine(x+25 + (width-80)/3, y+65 - (height-80)/2, x+25 + (width-80)/3*2, y+65 - (height-80)/2);
-//        painter.drawLine(x+25 + (width-80)/3*2, y+65 - (height-80)/2, x+25 + (width-80), y+65);
-//        painter.drawLine(x+25 + (width-80), y+65, x+25 + (width-80)/3*2, y+65 + (height-80)/2);
-//        painter.drawLine(x+25 + (width-80)/3*2, y+65 + (height-80)/2, x+25 + (width-80)/3, y+65 + (height-80)/2);
-//        painter.drawLine(x+25 + (width-80)/3, y+65 + (height-80)/2, x+25, y+65);
+
 
         for(Shape s : shapes){
 
             s.paint(painter);
+            if(s.text != null){
+            s.drawText(painter);
+            }
         }
 
         painter.translate(-x,-y);
