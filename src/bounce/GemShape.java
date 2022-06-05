@@ -16,7 +16,9 @@ public class GemShape extends Shape{
 
     }
 
-
+    public GemShape(int x, int y, int deltaX, int deltaY, int width, int height, String text) {
+        super(x, y, deltaX, deltaY, width, height, text);
+    }
 
     @Override
     public void paint(Painter painter) {
@@ -41,10 +43,10 @@ public class GemShape extends Shape{
 
     }
 
-//    @Override
-//    public void drawText(Painter painter) {
-//        painter.drawCenteredText(text, x, y);
-//    }
+    @Override
+    public void drawText(Painter painter) {
+        painter.drawCenteredText(text, x, y);
+    }
 
 
 }

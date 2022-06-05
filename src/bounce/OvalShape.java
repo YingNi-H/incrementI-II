@@ -24,22 +24,12 @@ public class OvalShape extends Shape {
     @Override
     public void paint(Painter painter) {
         painter.drawOval(x, y, width, height);
-//        painter.drawCenteredText(text,x,y);
-//        StackOverFlows
-
-//        painter.drawCenteredText("Oo", x, y);
-//        ok
 
     }
 
     @Override
     public void drawText(Painter painter) {
         painter.drawCenteredText(text, x, y);
-//        StackOverFlows
 
-//        super.drawText(painter);
-
-//        painter.drawCenteredText("Oo", x, y);
-//        StackOverFlows
     }
 }

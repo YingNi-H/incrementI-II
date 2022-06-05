@@ -46,7 +46,7 @@ public class AnimationViewer extends JPanel implements ActionListener {
         shapes.add(new RectangleShape(0, 0, 2, 3));
         shapes.add(new RectangleShape(10, 10, 3, -1));
         shapes.add(new OvalShape(20,20,2,3,80,120,"OO"));
-        shapes.add(new OvalShape(30,30,3,2,80,50));
+        shapes.add(new OvalShape(30,30,3,2,80,50,"XX"));
         shapes.add(new GemShape(40,40,1,3,80,50));
         shapes.add(new GemShape(50,50,2,2,30,39));
         shapes.add(new DynamicRectangleShape(5,5,3,3,100,100));
@@ -56,11 +56,11 @@ public class AnimationViewer extends JPanel implements ActionListener {
         NestingShape bottomRectangleShape = new NestingShape(75, 75, -2,2,100,100);
         OvalShape oShape = new OvalShape(85, 85, 5,-2,50,50);
 
-        NestingShape nestingShape = new NestingShape(60,60,2,2,250,250);
+        NestingShape nestingShape = new NestingShape(60,60,2,2,250,250,"+++++");
 
         nestingShape.add(midRectangleShape);
         midRectangleShape.add(bottomRectangleShape);
-//        midRectangleShape.add(bottomRectangleShape);
+//       midRectangleShape.add(bottomRectangleShape);
         nestingShape.add(oShape);
         System.out.println(nestingShape.shapeCount());
 
@@ -94,7 +94,9 @@ public class AnimationViewer extends JPanel implements ActionListener {
         // Progress the animation.
         for (Shape s : shapes) {
             s.paint(painter);
+            if(s.text != null){
             s.drawText(painter);
+            }
             s.move(width, height);
         }
     }

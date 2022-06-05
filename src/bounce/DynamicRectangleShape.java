@@ -21,6 +21,9 @@ public class DynamicRectangleShape extends Shape {
 
     }
 
+    public DynamicRectangleShape(int x, int y, int deltaX, int deltaY, int width, int height, String text) {
+        super(x, y, deltaX, deltaY, width, height, text);
+    }
 
     public void paint(Painter painter) {
 
@@ -41,10 +44,10 @@ public class DynamicRectangleShape extends Shape {
 
     }
 
-//    @Override
-//    public void drawText(Painter painter) {
-//        painter.drawCenteredText(text, x, y);
-//    }
+    @Override
+    public void drawText(Painter painter) {
+        painter.drawCenteredText(text, x, y);
+    }
 
 
     public void move(int width, int height) {

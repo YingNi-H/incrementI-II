@@ -27,6 +27,11 @@ public class NestingShape extends Shape{
     }
 
 
+    public NestingShape(int x, int y, int deltaX, int deltaY, int width, int height, String text) {
+        super(x, y, deltaX, deltaY, width, height, text);
+
+    }
+
     @Override
     public void paint(Painter painter) {
 
@@ -70,10 +75,10 @@ public class NestingShape extends Shape{
 
     }
 
-//    @Override
-//    public void drawText(Painter painter) {
-//        painter.drawCenteredText(text, x, y);
-//    }
+    @Override
+    public void drawText(Painter painter) {
+        painter.drawCenteredText(text, x, y);
+    }
 
     public void add(Shape shape) throws IllegalArgumentException{
 

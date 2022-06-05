@@ -45,6 +45,9 @@ public class RectangleShape extends Shape {
     }
 
 
+    public RectangleShape(int x, int y, int deltaX, int deltaY, int width, int height, String text) {
+        super(x, y, deltaX, deltaY, width, height, text);
+    }
 
     /**
      * Paints this RectangleShape object using the supplied Painter object.
@@ -55,8 +58,8 @@ public class RectangleShape extends Shape {
 //        painter.drawCentredText("[+_+]", x,y+15);
     }
 
-//    @Override
-//    public void drawText(Painter painter) {
-//        painter.drawCenteredText(text, x, y);
-//    }
+    @Override
+    public void drawText(Painter painter) {
+        painter.drawCenteredText(text, x, y);
+    }
 }
