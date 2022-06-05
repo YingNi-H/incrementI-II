@@ -31,7 +31,7 @@ public class NestingShape extends Shape{
     public void paint(Painter painter) {
 
         painter.drawRect(x,y,width,height);
-        painter.drawCentredText("THIS IS SO COOL ^_^",x+10,y+20);
+//        painter.drawCentredText("THIS IS SO COOL ^_^",x+10,y+20);
         painter.translate(x,y);
 //        painter.drawRect(x+5, y+5, width-40,height-40);
 //        painter.translate(x,y);
@@ -69,6 +69,11 @@ public class NestingShape extends Shape{
         }
 
     }
+
+//    @Override
+//    public void drawText(Painter painter) {
+//        painter.drawCenteredText(text, x, y);
+//    }
 
     public void add(Shape shape) throws IllegalArgumentException{
 

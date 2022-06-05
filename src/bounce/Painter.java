@@ -35,6 +35,6 @@ public interface Painter {
 
     public void translate(int x, int y);
 
-    public void drawCentredText(String str, int x, int y);
+    public void drawCenteredText(String text, int x, int y);
 
 }

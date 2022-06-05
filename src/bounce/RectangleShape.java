@@ -52,6 +52,11 @@ public class RectangleShape extends Shape {
     public void paint(Painter painter) {
 
         painter.drawRect(x, y, width, height);
-        painter.drawCentredText("[+_+]", x,y+15);
+//        painter.drawCentredText("[+_+]", x,y+15);
     }
+
+//    @Override
+//    public void drawText(Painter painter) {
+//        painter.drawCenteredText(text, x, y);
+//    }
 }

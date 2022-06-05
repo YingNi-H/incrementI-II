@@ -36,10 +36,15 @@ public class GemShape extends Shape{
 
 
         }
-        painter.drawCentredText("<~v~>", x,y+6);
+//        painter.drawCentredText("<~v~>", x,y+6);
 
 
     }
+
+//    @Override
+//    public void drawText(Painter painter) {
+//        painter.drawCenteredText(text, x, y);
+//    }
 
 
 }

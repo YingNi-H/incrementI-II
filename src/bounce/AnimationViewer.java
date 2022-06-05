@@ -45,7 +45,7 @@ public class AnimationViewer extends JPanel implements ActionListener {
         // Populate the list of Shapes.
         shapes.add(new RectangleShape(0, 0, 2, 3));
         shapes.add(new RectangleShape(10, 10, 3, -1));
-        shapes.add(new OvalShape(20,20,2,3,80,120));
+        shapes.add(new OvalShape(20,20,2,3,80,120,"OO"));
         shapes.add(new OvalShape(30,30,3,2,80,50));
         shapes.add(new GemShape(40,40,1,3,80,50));
         shapes.add(new GemShape(50,50,2,2,30,39));
@@ -94,6 +94,7 @@ public class AnimationViewer extends JPanel implements ActionListener {
         // Progress the animation.
         for (Shape s : shapes) {
             s.paint(painter);
+            s.drawText(painter);
             s.move(width, height);
         }
     }

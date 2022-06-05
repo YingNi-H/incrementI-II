@@ -42,7 +42,7 @@ public abstract class Shape {
 
     protected NestingShape parent;
 
-    protected List<Shape> nestingShapes;
+    protected String text;
     // ===
 
     /**
@@ -78,6 +78,16 @@ public abstract class Shape {
         this.deltaY = deltaY;
         this.width = width;
         this.height = height;
+    }
+
+    public Shape(int x, int y, int deltaX, int deltaY, int width, int height, String text){
+        this.x = x;
+        this.y = y;
+        this.deltaX = deltaX;
+        this.deltaY = deltaY;
+        this.width = width;
+        this.height = height;
+        this.text = text;
     }
 
     /**
@@ -120,6 +130,11 @@ public abstract class Shape {
      */
     public abstract void paint(Painter painter);
 
+    public void drawText(Painter painter){
+        painter.drawCenteredText(text,x,y);
+
+    }
+
     /**
      * Returns this Shape object's x position.
      */
@@ -161,6 +176,8 @@ public abstract class Shape {
     public int height() {
         return height;
     }
+
+    public String text(){return text;}
 
     /**
      * Returns a String whose value is the fully qualified name of this class

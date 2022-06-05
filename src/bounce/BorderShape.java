@@ -25,8 +25,13 @@ public class BorderShape extends Shape {
         painter.drawRect(x, y, width, height);
         painter.drawRect(x+2, y+2, width-4, height-4);
         painter.drawOval(x+4, y+4, width-8, height-8);
-        painter.drawCentredText("((()))",x+20,y+30);
+//        painter.drawCentredText("((()))",x+20,y+30);
 
     }
+
+//    @Override
+//    public void drawText(Painter painter) {
+//        painter.drawCenteredText(text, x, y);
+//    }
 
 }

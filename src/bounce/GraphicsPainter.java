@@ -42,7 +42,7 @@ public class GraphicsPainter implements Painter {
 
     @Override
     public void fillRect(int x, int y, int width, int height) {
-        g.fillRect(x,y,width,height);
+        g.fillRect(x, y, width, height);
     }
 
     @Override
@@ -58,11 +58,23 @@ public class GraphicsPainter implements Painter {
 
     @Override
     public void translate(int x, int y) {
-        g.translate(x,y);
+        g.translate(x, y);
     }
 
     @Override
-    public void drawCentredText(String str, int x, int y) {
-        g.drawString(str,x,y);
+    public void drawCenteredText(String text, int x, int y) {
+        FontMetrics fm = g.getFontMetrics();
+        int ascent = fm.getAscent();
+        int descent = fm.getDescent();
+
+        int xPos = x - fm.stringWidth(text) / 2;
+        int yPos = y;
+
+        if( ascent > descent )
+            yPos += (ascent - descent) / 2;
+        else if (ascent < descent)
+            yPos -= (descent - ascent) / 2;
+
+        g.drawString(text, xPos, yPos);
     }
 }
