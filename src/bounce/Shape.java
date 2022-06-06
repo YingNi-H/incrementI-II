@@ -48,8 +48,6 @@ public abstract class Shape {
 
     protected Shape shape;
 
-    protected List<Shape> shapes;
-
 
     // ===
 

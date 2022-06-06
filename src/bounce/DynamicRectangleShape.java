@@ -72,43 +72,63 @@ public class DynamicRectangleShape extends Shape {
 
 
     public void move(int width, int height) {
-        this.x
 
-        int nextX = x + deltaX;
-        int nextY = y + deltaY;
+//
+//        int nextX = x + deltaX;
+//        int nextY = y + deltaY;
+//
+//        if (nextX <= 0) {
+//            nextX = 0;
+//            deltaX = -deltaX;
+//
+//            c = leftC;
+//
+//
+//        } else if (nextX + this.width >= width) {
+//            nextX = width - this.width;
+//            deltaX = -deltaX;
+//
+//
+//            c = rightC;
+//
+//        }
+//
+//        if (nextY <= 0) {
+//            nextY = 0;
+//            deltaY = -deltaY;
+//
+//            c = null;
+//
+//
+//        } else if (nextY + this.height >= height) {
+//            nextY = height - this.height;
+//            deltaY = -deltaY;
+//
+//            c = null;
+//        }
+//
+//        x = nextX;
+//        y = nextY;
+//    }
 
-        if (nextX <= 0) {
-            nextX = 0;
-            deltaX = -deltaX;
-
+        if (this.x() == 0) {
+            this.deltaX = -deltaX;
             c = leftC;
-
-
-        } else if (nextX + this.width >= width) {
-            nextX = width - this.width;
-            deltaX = -deltaX;
-
-
+        }
+        if (this.x() == width - this.width) {
+            this.x =
+            this.deltaX = -deltaX;
             c = rightC;
-
         }
-
-        if (nextY <= 0) {
-            nextY = 0;
-            deltaY = -deltaY;
-
-            c = null;
-
-
-        } else if (nextY + this.height >= height) {
-            nextY = height - this.height;
-            deltaY = -deltaY;
-
+        if (this.y() == 0) {
+            this.deltaY = -deltaY;
             c = null;
         }
-
-        x = nextX;
-        y = nextY;
+        if (this.y() == height - this.height) {
+            this.deltaY = -deltaY;
+            c = null;
+        }
     }
+
 
 }
