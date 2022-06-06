@@ -46,9 +46,6 @@ public abstract class Shape {
 
     protected String text;
 
-    protected Shape shape;
-
-
     // ===
 
     /**
@@ -86,20 +83,10 @@ public abstract class Shape {
         this.height = height;
     }
 
-
-
-
     public Shape(int x, int y, int deltaX, int deltaY, int width, int height, String text){
-        this.x = x;
-        this.y = y;
-        this.deltaX = deltaX;
-        this.deltaY = deltaY;
-        this.width = width;
-        this.height = height;
+        this(x, y, deltaX, deltaY, width, height);
         this.text = text;
     }
-
-
 
     /**
      * Moves this Shape object within the specified bounds. On hitting a
@@ -142,7 +129,8 @@ public abstract class Shape {
     public abstract void paint(Painter painter);
 
     public void drawText(Painter painter){
-        painter.drawCenteredText(text,x,y);
+
+        painter.drawCenteredText(text, x, y);
 
     }
 
@@ -200,22 +188,13 @@ public abstract class Shape {
     }
 
     public NestingShape parent (){
-        return this.parent;
 
+        return this.parent;
     }
 
     public List<Shape> path(){
-//        parent = new NestingShape();
-//        NestingShape intermediate = new NestingShape ();
-//        NestingShape bottom = new NestingShape ();
-//        Shape gem = new GemShape ();
-//        parent.add(intermediate);
-//        intermediate.add(bottom);
-//        intermediate.add(gem);
+
         List<Shape> path = new ArrayList<>();
-//        path.add(parent);
-//        path.add(intermediate);
-//        path.add(gem);
 
 //        List<Shape> newPath = new ArrayList<>();
 //        for (int i = path.size() - 1; i >= 0 ; i--) {
@@ -246,7 +225,6 @@ public abstract class Shape {
 //        }
 
         return path;
-
 
     }
 

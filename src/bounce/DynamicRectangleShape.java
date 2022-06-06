@@ -50,17 +50,13 @@ public class DynamicRectangleShape extends Shape {
         painter.drawRect(x, y, width, height);
         Color origin = painter.getColor();
 
-
         if(c != null){
             painter.setColor(c);
             painter.fillRect(x, y, width, height);
         }
 
 
-
         painter.setColor(origin);
-
-
 
 
     }
@@ -111,23 +107,33 @@ public class DynamicRectangleShape extends Shape {
 //        y = nextY;
 //    }
 
-        if (this.x() == 0) {
+        int posX = this.x() + this.deltaX;
+        int posY = this.y() + this.deltaY;
+
+        if (posX <= 0) {
+            posX = 0;
+
             this.deltaX = -deltaX;
             c = leftC;
         }
-        if (this.x() == width - this.width) {
-            this.x =
+        if (posX >= width - this.width) {
+            posX = width - this.width;
+
             this.deltaX = -deltaX;
             c = rightC;
         }
-        if (this.y() == 0) {
+        if (posY <= 0) {
+            posY = 0;
             this.deltaY = -deltaY;
             c = null;
         }
-        if (this.y() == height - this.height) {
+        if (posY >= height - this.height) {
+            posY = height - this.height;
             this.deltaY = -deltaY;
             c = null;
         }
+        this.x = posX;
+        this.y = posY;
     }
 
 
