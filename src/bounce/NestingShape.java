@@ -36,7 +36,7 @@ public class NestingShape extends Shape{
     public void paint(Painter painter) {
 
         painter.drawRect(x,y,width,height);
-//        painter.drawCentredText("THIS IS SO COOL ^_^",x+10,y+20);
+
         painter.translate(x,y);
 
 
@@ -56,7 +56,7 @@ public class NestingShape extends Shape{
     }
 
     public void move( int width , int height ){
-//        nestingShape.move(width,height);
+
         super.move(width, height);
 
         for(Shape s : shapes){

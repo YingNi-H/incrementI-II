@@ -1,6 +1,6 @@
 package bounce;
 
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -49,31 +49,25 @@ public class AnimationViewer extends JPanel implements ActionListener {
 //        shapes.add(new OvalShape(30,30,3,2,80,50,"XX"));
 //        shapes.add(new GemShape(40,40,1,3,80,50,"Gem"));
 //        shapes.add(new GemShape(50,50,2,2,30,39));
-//        shapes.add(new DynamicRectangleShape(5,5,3,3,100,100,"^_^"));
+
+        shapes.add(new DynamicRectangleShape(5,5,3,3,100,100, Color.RED, Color.CYAN,"^_^"));
+        shapes.add(new DynamicRectangleShape(5,5,4,-5,100,100, Color.blue, Color.orange));
 
         Shape r = new RectangleShape(15,15,2,2,76,76);
-
-        List<BorderShape> embeded = new ArrayList<>();
-
         BorderShape b = new BorderShape(r);
-//        BorderShape c = new BorderShape(b);
-        shapes.add(new BorderShape(b));
+        BorderShape c = new BorderShape(b);
+        shapes.add(new BorderShape(c));
 
         NestingShape midRectangleShape = new NestingShape(65, 65, 1,1,150,150,"OKKKKK");
         NestingShape bottomRectangleShape = new NestingShape(75, 75, -2,2,100,100,"!!!!");
         OvalShape oShape = new OvalShape(85, 85, 5,-2,50,50,"^^^");
-
         NestingShape nestingShape = new NestingShape(60,60,2,2,250,250,"+++++");
-
         nestingShape.add(midRectangleShape);
         midRectangleShape.add(bottomRectangleShape);
 //       midRectangleShape.add(bottomRectangleShape);
         nestingShape.add(oShape);
         System.out.println(nestingShape.shapeCount());
-
-
         shapes.add(nestingShape);
-
 
 
         // Start the animation.

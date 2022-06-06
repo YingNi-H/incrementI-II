@@ -5,7 +5,8 @@ import java.util.List;
 
 public class BorderShape extends Shape {
 
-//    protected Shape shape;
+    protected Shape shape;
+    protected List<Shape> shapes;
 
 
     public BorderShape() {
@@ -26,31 +27,40 @@ public class BorderShape extends Shape {
     }
 
     public BorderShape(Shape shape) {
-        super(shape);
-    }
-
-    public BorderShape(List<Shape> shapes, Shape shape) {
-        this.shapes = shapes;
+        this.x = shape.x - 2;
+        this.y = shape.x - 2;
+        this.width = shape.width + 4;
+        this.height = shape.height + 4;
         this.shape = shape;
     }
 
+
+
     @Override
     public void paint(Painter painter) {
-        painter.drawRect(shape.x - 2 , shape.y - 2, shape.width + 4, shape.height + 4);
-
-//        for(Shape s : shapes){
-            shape.paint(painter);
-//        }
-
+        painter.drawRect(x, y, width, height);
+        shape.paint(painter);
 
     }
 
     @Override
     public void move(int width, int height) {
         super.move(width, height);
-//        for(Shape s : shapes){
-            shape.move(width,height);
-//        }
+        shape.move(width,height);
+        if(shape.x() == 2){
+            shape.deltaX = -deltaX;
+        }
+        if(shape.x() == width - 2 - shape.width){
+            shape.deltaX = -deltaX;
+        }
+        if(shape.y() == 2){
+            shape.deltaY = -deltaY;
+        }
+        if(shape.y() == height -2 - shape.height){
+            shape.deltaY = -deltaY;
+        }
+
+
 
     }
 

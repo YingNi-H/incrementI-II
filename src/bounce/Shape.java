@@ -89,16 +89,7 @@ public abstract class Shape {
     }
 
 
-    public Shape( Shape shape) {
 
-        this.shape = shape;
-    }
-
-    public Shape( List<Shape> shapes, Shape shape) {
-
-        this.shapes = shapes;
-        this.shape = shape;
-    }
 
     public Shape(int x, int y, int deltaX, int deltaY, int width, int height, String text){
         this.x = x;
@@ -216,27 +207,32 @@ public abstract class Shape {
     }
 
     public List<Shape> path(){
-        parent = new NestingShape();
-        NestingShape intermediate = new NestingShape ();
-        NestingShape bottom = new NestingShape ();
-        Shape gem = new GemShape ();
-        parent.add(intermediate);
-        intermediate.add(bottom);
-        intermediate.add(gem);
+//        parent = new NestingShape();
+//        NestingShape intermediate = new NestingShape ();
+//        NestingShape bottom = new NestingShape ();
+//        Shape gem = new GemShape ();
+//        parent.add(intermediate);
+//        intermediate.add(bottom);
+//        intermediate.add(gem);
         List<Shape> path = new ArrayList<>();
-        path.add(parent);
-        path.add(intermediate);
-        path.add(gem);
+//        path.add(parent);
+//        path.add(intermediate);
+//        path.add(gem);
 
 //        List<Shape> newPath = new ArrayList<>();
-        for (int i = path.size() - 1; i >= 0 ; i--) {
-            if(i == 0) {
-                List<Shape> root = new ArrayList<>();
-                root.add(parent);
-                path = root;
-            }
-
+//        for (int i = path.size() - 1; i >= 0 ; i--) {
+//            if(i == 0) {
+//                List<Shape> root = new ArrayList<>();
+//                root.add(parent);
+//                path = root;
+//            }
+//
+//        }
+        if (parent != null) {
+            List<Shape> parentsPath = parent.path();
+            path.addAll(parentsPath);
         }
+        path.add(this);
 
 
 //        for (int i = (path.size() - 1); i >= 0 ; i--) {

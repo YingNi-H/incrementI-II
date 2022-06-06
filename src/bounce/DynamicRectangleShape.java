@@ -4,7 +4,10 @@ import java.awt.*;
 
 public class DynamicRectangleShape extends Shape {
 
-    protected static Color c = Color.CYAN;
+    protected Color c = Color.CYAN;
+
+    protected Color leftC;
+    protected Color rightC;
 
     public DynamicRectangleShape() {
         super();
@@ -21,21 +24,39 @@ public class DynamicRectangleShape extends Shape {
 
     }
 
-    public DynamicRectangleShape(int x, int y, int deltaX, int deltaY, int width, int height, String text) {
-        super(x, y, deltaX, deltaY, width, height, text);
+    public DynamicRectangleShape(int x, int y, int deltaX, int deltaY, int width, int height, Color leftC, Color rightC) {
+        this.x = x;
+        this.y = y;
+        this.deltaX = deltaX;
+        this.deltaY = deltaY;
+        this.width = width;
+        this.height = height;
+        this.leftC = leftC;
+        this.rightC = rightC;
+
+
     }
+
+    public DynamicRectangleShape(int x, int y, int deltaX, int deltaY, int width, int height, Color leftC, Color rightC, String text) {
+        super(x, y, deltaX, deltaY, width, height, text);
+        this.leftC = leftC;
+        this.rightC = rightC;
+    }
+
+
 
     public void paint(Painter painter) {
 
         painter.drawRect(x, y, width, height);
         Color origin = painter.getColor();
-        painter.setColor(c);
+
 
         if(c != null){
+            painter.setColor(c);
             painter.fillRect(x, y, width, height);
         }
 
-//        painter.drawCentredText("**********", x+7,y+27);
+
 
         painter.setColor(origin);
 
@@ -51,19 +72,24 @@ public class DynamicRectangleShape extends Shape {
 
 
     public void move(int width, int height) {
+        this.x
+
         int nextX = x + deltaX;
         int nextY = y + deltaY;
 
         if (nextX <= 0) {
             nextX = 0;
             deltaX = -deltaX;
-            c = Color.PINK;
+
+            c = leftC;
 
 
         } else if (nextX + this.width >= width) {
             nextX = width - this.width;
             deltaX = -deltaX;
-            c = Color.GREEN;
+
+
+            c = rightC;
 
         }
 
