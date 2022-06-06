@@ -1,8 +1,11 @@
 package bounce;
 
 
+import java.util.List;
 
 public class BorderShape extends Shape {
+
+//    protected Shape shape;
 
 
     public BorderShape() {
@@ -22,12 +25,32 @@ public class BorderShape extends Shape {
         super(x, y, deltaX, deltaY, width, height, text);
     }
 
+    public BorderShape(Shape shape) {
+        super(shape);
+    }
+
+    public BorderShape(List<Shape> shapes, Shape shape) {
+        this.shapes = shapes;
+        this.shape = shape;
+    }
+
     @Override
     public void paint(Painter painter) {
-        painter.drawRect(x, y, width, height);
-        painter.drawRect(x+2, y+2, width-4, height-4);
-        painter.drawOval(x+4, y+4, width-8, height-8);
-//        painter.drawCentredText("((()))",x+20,y+30);
+        painter.drawRect(shape.x - 2 , shape.y - 2, shape.width + 4, shape.height + 4);
+
+//        for(Shape s : shapes){
+            shape.paint(painter);
+//        }
+
+
+    }
+
+    @Override
+    public void move(int width, int height) {
+        super.move(width, height);
+//        for(Shape s : shapes){
+            shape.move(width,height);
+//        }
 
     }
 

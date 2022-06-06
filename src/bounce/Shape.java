@@ -25,6 +25,8 @@ public abstract class Shape {
     protected static final int DEFAULT_HEIGHT = 35;
 
     protected static final int DEFAULT_WIDTH = 25;
+
+
     // ===
 
     // === Instance variables, accessible by subclasses.
@@ -43,6 +45,12 @@ public abstract class Shape {
     protected NestingShape parent;
 
     protected String text;
+
+    protected Shape shape;
+
+    protected List<Shape> shapes;
+
+
     // ===
 
     /**
@@ -80,6 +88,18 @@ public abstract class Shape {
         this.height = height;
     }
 
+
+    public Shape( Shape shape) {
+
+        this.shape = shape;
+    }
+
+    public Shape( List<Shape> shapes, Shape shape) {
+
+        this.shapes = shapes;
+        this.shape = shape;
+    }
+
     public Shape(int x, int y, int deltaX, int deltaY, int width, int height, String text){
         this.x = x;
         this.y = y;
@@ -89,6 +109,8 @@ public abstract class Shape {
         this.height = height;
         this.text = text;
     }
+
+
 
     /**
      * Moves this Shape object within the specified bounds. On hitting a
@@ -211,7 +233,7 @@ public abstract class Shape {
             if(i == 0) {
                 List<Shape> root = new ArrayList<>();
                 root.add(parent);
-                return root;
+                path = root;
             }
 
         }
