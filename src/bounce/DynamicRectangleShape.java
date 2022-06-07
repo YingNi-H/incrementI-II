@@ -4,13 +4,14 @@ import java.awt.*;
 
 public class DynamicRectangleShape extends Shape {
 
-    protected Color c = Color.BLACK;
+    protected Color c;
 
     protected Color leftC;
 
     protected Color rightC;
 
     protected Color moveColor;
+
 
     public DynamicRectangleShape() {
         super();
@@ -45,23 +46,22 @@ public class DynamicRectangleShape extends Shape {
 
     public void paint(Painter painter) {
 
-//        Color origin = painter.getColor();
-//        painter.drawRect(x, y, width, height);
-//        if(c != null){
-//            painter.setColor(c);
-//            painter.fillRect(x, y, width, height);
-//
-//        }
         Color origin = painter.getColor();
-        painter.drawRect(x, y, width, height);
         painter.setColor(c);
-        painter.fillRect(x, y, width, height);
-        moveColor = painter.getColor();
-        painter.setColor(moveColor);
-        if(c == moveColor){
-        painter.drawRect(x, y, width, height);
-        }
 
+        if(c != moveColor){
+            painter.fillRect(x, y, width, height);
+//            moveColor = painter.getColor();
+            //colored line but not solid
+
+
+        } else {
+
+            moveColor = painter.getColor();
+
+            painter.setColor(moveColor);
+            painter.drawRect(x, y, width, height);
+        }
 
         painter.setColor(origin);
 
@@ -75,85 +75,42 @@ public class DynamicRectangleShape extends Shape {
 
     public void move(int width, int height) {
 
+//        this.x += this.deltaX;
+//        this.y += this.deltaY;
 //
-//        int nextX = x + deltaX;
-//        int nextY = y + deltaY;
-//
-//        if (nextX <= 0) {
-//            nextX = 0;
-//            deltaX = -deltaX;
-//
+//        if (this.x <= 0) {
+//            this.x = 0;
+//            this.deltaX = -deltaX;
 //            c = leftC;
-//
-//
-//        } else if (nextX + this.width >= width) {
-//            nextX = width - this.width;
-//            deltaX = -deltaX;
-//
-//
+//        }
+//        if (this.x >= width - this.width) {
+//            this.x = width - this.width;
+//            this.deltaX = -deltaX;
 //            c = rightC;
-//
 //        }
-//
-//        if (nextY <= 0) {
-//            nextY = 0;
-//            deltaY = -deltaY;
-//
-//            c = null;
-//
-//
-//        } else if (nextY + this.height >= height) {
-//            nextY = height - this.height;
-//            deltaY = -deltaY;
-//
-//            c = null;
+//        if (this.y <= 0) {
+//            this.y = 0;
+//            this.deltaY = -deltaY;
+//            c = moveColor;
 //        }
-//
-//        x = nextX;
-//        y = nextY;
-//    }
+//        if (this.y >= height - this.height) {
+//            this.y = height - this.height;
+//            this.deltaY = -deltaY;
+//            c = moveColor;
+//        }
 
-        int posX = this.x() + this.deltaX;
-        int posY = this.y() + this.deltaY;
+        super.move(width, height);
 
-        if (posX <= 0) {
-            posX = 0;
-
-            this.deltaX = -deltaX;
+        if(this.deltaX == -deltaX && this.x <= 0){
             c = leftC;
-        }
-        if (posX >= width - this.width) {
-            posX = width - this.width;
-
-            this.deltaX = -deltaX;
+        } else if(this.deltaX == -deltaX && this.x + this.width >= width){
             c = rightC;
         }
-        if (posY <= 0) {
-            posY = 0;
-            this.deltaY = -deltaY;
-//            c = null;
+        if(this.deltaY == -deltaY && (this.y <= 0 || this.y + this.height >= height)){
             c = moveColor;
         }
-        if (posY >= height - this.height) {
-            posY = height - this.height;
-            this.deltaY = -deltaY;
-//            c = null;
-            c = moveColor;
-        }
-        this.x = posX;
-        this.y = posY;
 
-//    super.move(width, height);
-////    if(this.deltaX == -deltaX){
-////        c = leftC;
-////    }
-//        if(this.deltaX == -deltaX){
-//            c = rightC;
-//        }
-//        if(this.deltaY == -deltaY){
-//            c = null;
-//        }
-//
+
     }
 
 
