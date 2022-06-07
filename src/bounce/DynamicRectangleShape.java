@@ -4,10 +4,13 @@ import java.awt.*;
 
 public class DynamicRectangleShape extends Shape {
 
-    protected Color c = Color.CYAN;
+    protected Color c = Color.BLACK;
 
     protected Color leftC;
+
     protected Color rightC;
+
+    protected Color moveColor;
 
     public DynamicRectangleShape() {
         super();
@@ -25,12 +28,7 @@ public class DynamicRectangleShape extends Shape {
     }
 
     public DynamicRectangleShape(int x, int y, int deltaX, int deltaY, int width, int height, Color leftC, Color rightC) {
-        this.x = x;
-        this.y = y;
-        this.deltaX = deltaX;
-        this.deltaY = deltaY;
-        this.width = width;
-        this.height = height;
+        super(x, y, deltaX, deltaY, width, height);
         this.leftC = leftC;
         this.rightC = rightC;
 
@@ -41,23 +39,31 @@ public class DynamicRectangleShape extends Shape {
         super(x, y, deltaX, deltaY, width, height, text);
         this.leftC = leftC;
         this.rightC = rightC;
-    }
 
+    }
 
 
     public void paint(Painter painter) {
 
-        painter.drawRect(x, y, width, height);
+//        Color origin = painter.getColor();
+//        painter.drawRect(x, y, width, height);
+//        if(c != null){
+//            painter.setColor(c);
+//            painter.fillRect(x, y, width, height);
+//
+//        }
         Color origin = painter.getColor();
-
-        if(c != null){
-            painter.setColor(c);
-            painter.fillRect(x, y, width, height);
+        painter.drawRect(x, y, width, height);
+        painter.setColor(c);
+        painter.fillRect(x, y, width, height);
+        moveColor = painter.getColor();
+        painter.setColor(moveColor);
+        if(c == moveColor){
+        painter.drawRect(x, y, width, height);
         }
 
 
         painter.setColor(origin);
-
 
     }
 
@@ -125,15 +131,29 @@ public class DynamicRectangleShape extends Shape {
         if (posY <= 0) {
             posY = 0;
             this.deltaY = -deltaY;
-            c = null;
+//            c = null;
+            c = moveColor;
         }
         if (posY >= height - this.height) {
             posY = height - this.height;
             this.deltaY = -deltaY;
-            c = null;
+//            c = null;
+            c = moveColor;
         }
         this.x = posX;
         this.y = posY;
+
+//    super.move(width, height);
+////    if(this.deltaX == -deltaX){
+////        c = leftC;
+////    }
+//        if(this.deltaX == -deltaX){
+//            c = rightC;
+//        }
+//        if(this.deltaY == -deltaY){
+//            c = null;
+//        }
+//
     }
 
 

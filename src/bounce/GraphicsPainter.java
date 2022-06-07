@@ -43,6 +43,7 @@ public class GraphicsPainter implements Painter {
     @Override
     public void fillRect(int x, int y, int width, int height) {
         g.fillRect(x, y, width, height);
+
     }
 
     @Override
