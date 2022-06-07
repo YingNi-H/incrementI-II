@@ -48,28 +48,37 @@ public class BorderShape extends Shape {
 
     @Override
     public void move(int width, int height) {
+//        int originalSpeedX = deltaX;
+//        int originalSpeedY = deltaY;
+//        int shapeOSX = shape.deltaX;
+//        int shapeOSY = shape.deltaY;
+        int originalX = this.x;
+        int originalY = this.y;
+        int shapeOX = shape.x;
+        int shapeOY = shape.y;
         super.move(width, height);
-        shape.move(width - 4, height - 4);
+        shape.move(width, height);
+        if(originalX <= 0 && shapeOX <=2){
+            originalX = 0;
+            shapeOX = 2;
+            deltaX = -deltaX;
 
-//        shape.x += shape.deltaX;
-//        shape.y += shape.deltaY;
-//
-//        if(shape.x() <= 2){
-//            shape.x = 2;
-//            shape.deltaX = -shape.deltaX;
-//        }
-//        if(shape.x() >= width - 2 - shape.width){
-//            shape.x = width - 2 - shape.width;
-//            shape.deltaX = -shape.deltaX;
-//        }
-//        if(shape.y() <= 2){
-//            shape.y = 2;
-//            shape.deltaY = -shape.deltaY;
-//        }
-//        if(shape.y() >= height -2 - shape.height){
-//            shape.y = height -2 - shape.height;
-//            shape.deltaY = -shape.deltaY;
-//        }
+        } else if (originalX + this.width >= width && shapeOX + shape.width >= width - 2){
+            originalX = width - this.width;
+            shapeOX = width - 2 - shape.width;
+            deltaX = -deltaX;
+
+        }if(originalY <= 0 && shapeOY <=2){
+            originalY = 0;
+            shapeOY = 2;
+            deltaY = -deltaY;
+
+        } else if (originalY + this.height >= height && shapeOY + shape.height >= height - 2){
+            originalY = height - this.height;
+            shapeOY = height - 2 - this.height;
+            deltaY = -deltaY;
+        }
+
 
 
 

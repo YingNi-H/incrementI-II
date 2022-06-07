@@ -60,7 +60,7 @@ public class AnimationViewer extends JPanel implements ActionListener {
 
         NestingShape midRectangleShape = new NestingShape(65, 65, 1,1,150,150,"OKKKKK");
         NestingShape bottomRectangleShape = new NestingShape(75, 75, -2,2,55,55,"!!!!");
-        OvalShape oShape = new OvalShape(85, 85, 5,-2,50,50,"^^^");
+        Shape oShape = new OvalShape(85, 85, 5,-2,50,50,"^^^");
         NestingShape nestingShape = new NestingShape(60,60,2,2,250,250,"+++++");
         nestingShape.add(midRectangleShape);
         midRectangleShape.add(bottomRectangleShape);

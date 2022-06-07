@@ -49,16 +49,13 @@ public class DynamicRectangleShape extends Shape {
         Color origin = painter.getColor();
         painter.setColor(c);
 
-        if(c != moveColor){
+        if(c != moveColor) {
             painter.fillRect(x, y, width, height);
 //            moveColor = painter.getColor();
             //colored line but not solid
 
-
-        } else {
-
+        }else{
             moveColor = painter.getColor();
-
             painter.setColor(moveColor);
             painter.drawRect(x, y, width, height);
         }
@@ -75,38 +72,16 @@ public class DynamicRectangleShape extends Shape {
 
     public void move(int width, int height) {
 
-//        this.x += this.deltaX;
-//        this.y += this.deltaY;
-//
-//        if (this.x <= 0) {
-//            this.x = 0;
-//            this.deltaX = -deltaX;
-//            c = leftC;
-//        }
-//        if (this.x >= width - this.width) {
-//            this.x = width - this.width;
-//            this.deltaX = -deltaX;
-//            c = rightC;
-//        }
-//        if (this.y <= 0) {
-//            this.y = 0;
-//            this.deltaY = -deltaY;
-//            c = moveColor;
-//        }
-//        if (this.y >= height - this.height) {
-//            this.y = height - this.height;
-//            this.deltaY = -deltaY;
-//            c = moveColor;
-//        }
-
+        int originalSpeedX = deltaX;
+        int originalSpeedY = deltaY;
         super.move(width, height);
 
-        if(this.deltaX == -deltaX && this.x <= 0){
+        if(originalSpeedX != deltaX && this.x <= 0){
             c = leftC;
-        } else if(this.deltaX == -deltaX && this.x + this.width >= width){
+        } else if(originalSpeedX != deltaX && this.x + this.width >= width){
             c = rightC;
         }
-        if(this.deltaY == -deltaY && (this.y <= 0 || this.y + this.height >= height)){
+        if(originalSpeedY != deltaY && (this.y <= 0 || this.y + this.height >= height)){
             c = moveColor;
         }
 
