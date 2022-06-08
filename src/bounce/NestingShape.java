@@ -5,12 +5,8 @@ import java.util.List;
 
 public class NestingShape extends Shape{
 
-    protected List<Shape> shapes = new ArrayList<Shape>();
+    private List<Shape> shapes = new ArrayList<Shape>();
 
-
-    public NestingShape() {
-
-    }
     public NestingShape(int x, int y){
         super(x,y);
 
@@ -39,7 +35,6 @@ public class NestingShape extends Shape{
 
         painter.translate(x,y);
 
-
         for(Shape s : shapes){
 
             s.paint(painter);
@@ -49,9 +44,6 @@ public class NestingShape extends Shape{
         }
 
         painter.translate(-x,-y);
-
-
-
 
     }
 
@@ -69,10 +61,6 @@ public class NestingShape extends Shape{
 
     }
 
-    @Override
-    public void drawText(Painter painter) {
-        painter.drawCenteredText(text, x, y);
-    }
 
     public void add(Shape shape) throws IllegalArgumentException{
 

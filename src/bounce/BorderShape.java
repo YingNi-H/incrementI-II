@@ -5,26 +5,8 @@ import java.util.List;
 
 public class BorderShape extends Shape {
 
-    protected Shape shape;
-    protected List<Shape> shapes;
+    private Shape shape;
 
-
-    public BorderShape() {
-        super();
-    }
-
-
-    public BorderShape(int x, int y, int deltaX, int deltaY) {
-        super(x, y, deltaX, deltaY);
-    }
-
-    public BorderShape(int x, int y, int deltaX, int deltaY, int width, int height) {
-        super(x, y, deltaX, deltaY, width, height);
-    }
-
-    public BorderShape(int x, int y, int deltaX, int deltaY, int width, int height, String text) {
-        super(x, y, deltaX, deltaY, width, height, text);
-    }
 
     public BorderShape(Shape shape, String text) {
         this.x = shape.x - 2;
@@ -36,7 +18,6 @@ public class BorderShape extends Shape {
         this.deltaY = shape.deltaY;
         this.text = text;
     }
-
 
 
     @Override
@@ -79,14 +60,7 @@ public class BorderShape extends Shape {
             deltaY = -deltaY;
         }
 
-
-
-
     }
 
-    @Override
-    public void drawText(Painter painter) {
-        painter.drawCenteredText(text, x, y);
-    }
 
 }

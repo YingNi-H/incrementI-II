@@ -58,8 +58,5 @@ public class RectangleShape extends Shape {
 
     }
 
-    @Override
-    public void drawText(Painter painter) {
-        painter.drawCenteredText(text, x, y);
-    }
+
 }

@@ -39,13 +39,6 @@ public class GemShape extends Shape{
 
         }
 
-
-
-    }
-
-    @Override
-    public void drawText(Painter painter) {
-        painter.drawCenteredText(text, x, y);
     }
 
 

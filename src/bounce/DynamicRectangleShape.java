@@ -4,13 +4,13 @@ import java.awt.*;
 
 public class DynamicRectangleShape extends Shape {
 
-    protected Color c;
+    private Color c;
 
-    protected Color leftC;
+    private Color leftC;
 
-    protected Color rightC;
+    private Color rightC;
 
-    protected Color moveColor;
+    private Color moveColor;
 
 
     public DynamicRectangleShape() {
@@ -64,11 +64,6 @@ public class DynamicRectangleShape extends Shape {
 
     }
 
-    @Override
-    public void drawText(Painter painter) {
-        painter.drawCenteredText(text, x, y);
-    }
-
 
     public void move(int width, int height) {
 
@@ -83,6 +78,15 @@ public class DynamicRectangleShape extends Shape {
         }
         if(originalSpeedY != deltaY && (this.y <= 0 || this.y + this.height >= height)){
             c = moveColor;
+        }
+        if((originalSpeedY != deltaY && this.y <= 0 ) && (originalSpeedX != deltaX && this.x <= 0) ||
+                (originalSpeedY != deltaY && this.y + this.height >= height) && (originalSpeedX != deltaX && this.x <= 0)) {
+            c = leftC;
+        }
+        if((originalSpeedY != deltaY && this.y <= 0 ) && (originalSpeedX != deltaX && this.x + this.width >= width) ||
+                (originalSpeedY != deltaY && this.y + this.height >= height) && (originalSpeedX != deltaX && this.x + this.width >= width)){
+            c = rightC;
+
         }
 
 
