@@ -10,7 +10,7 @@ public class BorderShape extends Shape {
 
     public BorderShape(Shape shape, String text) {
         this.x = shape.x - 2;
-        this.y = shape.x - 2;
+        this.y = shape.y - 2;
         this.width = shape.width + 4;
         this.height = shape.height + 4;
         this.shape = shape;
@@ -29,35 +29,41 @@ public class BorderShape extends Shape {
 
     @Override
     public void move(int width, int height) {
-//        int originalSpeedX = deltaX;
-//        int originalSpeedY = deltaY;
-//        int shapeOSX = shape.deltaX;
-//        int shapeOSY = shape.deltaY;
-        int originalX = this.x;
-        int originalY = this.y;
-        int shapeOriginalX = shape.x;
-        int shapeOriginalY = shape.y;
+
+        this.x = shape.x - 2;
+        this.y = shape.y - 2;
+        this.width = shape.width + 4;
+        this.height = shape.height + 4;
+        this.deltaX = shape.deltaX;
+        this.deltaY = shape.deltaY;
+
         super.move(width, height);
         shape.move(width, height);
-        if(originalX <= 0 && shapeOriginalX <=2){
-            originalX = 0;
-            shapeOriginalX = 2;
+        if(x <= 0 && shape.x <= 2){
+            x = 0;
+            shape.x = 2;
+
             deltaX = -deltaX;
+            shape.deltaX = -shape.deltaX;
 
-        } else if (originalX + this.width >= width && shapeOriginalX + shape.width >= width - 2){
-            originalX = width - this.width;
-            shapeOriginalX = width - 2 - shape.width;
+        } else if (x + this.width >= width && shape.x + this.width - 4 >= width - 2){
+            x = width - this.width;
+            shape.x = width - 2 - (this.width - 4);
+
             deltaX = -deltaX;
+            shape.deltaX = -shape.deltaX;
 
-        }if(originalY <= 0 && shapeOriginalY <=2){
-            originalY = 0;
-            shapeOriginalY = 2;
+        }if(y <= 0 && shape.y <= 2){
+            y = 0;
+            shape.y = 2;
             deltaY = -deltaY;
+            shape.deltaY = -shape.deltaY;
 
-        } else if (originalY + this.height >= height && shapeOriginalY + shape.height >= height - 2){
-            originalY = height - this.height;
-            shapeOriginalY = height - 2 - this.height;
+        } else if (y + this.height >= height && shape.y + this.height - 4 >= height - 2){
+            y = height - this.height;
+            shape.y = height - 2 - (this.height - 4);
             deltaY = -deltaY;
+            shape.deltaY = -shape.deltaY;
         }
 
     }
