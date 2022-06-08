@@ -35,28 +35,28 @@ public class BorderShape extends Shape {
 //        int shapeOSY = shape.deltaY;
         int originalX = this.x;
         int originalY = this.y;
-        int shapeOX = shape.x;
-        int shapeOY = shape.y;
+        int shapeOriginalX = shape.x;
+        int shapeOriginalY = shape.y;
         super.move(width, height);
         shape.move(width, height);
-        if(originalX <= 0 && shapeOX <=2){
+        if(originalX <= 0 && shapeOriginalX <=2){
             originalX = 0;
-            shapeOX = 2;
+            shapeOriginalX = 2;
             deltaX = -deltaX;
 
-        } else if (originalX + this.width >= width && shapeOX + shape.width >= width - 2){
+        } else if (originalX + this.width >= width && shapeOriginalX + shape.width >= width - 2){
             originalX = width - this.width;
-            shapeOX = width - 2 - shape.width;
+            shapeOriginalX = width - 2 - shape.width;
             deltaX = -deltaX;
 
-        }if(originalY <= 0 && shapeOY <=2){
+        }if(originalY <= 0 && shapeOriginalY <=2){
             originalY = 0;
-            shapeOY = 2;
+            shapeOriginalY = 2;
             deltaY = -deltaY;
 
-        } else if (originalY + this.height >= height && shapeOY + shape.height >= height - 2){
+        } else if (originalY + this.height >= height && shapeOriginalY + shape.height >= height - 2){
             originalY = height - this.height;
-            shapeOY = height - 2 - this.height;
+            shapeOriginalY = height - 2 - this.height;
             deltaY = -deltaY;
         }
 
