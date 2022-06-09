@@ -49,13 +49,6 @@ public class AccordianShape extends Shape{
         int[] yPoints = new int[]{y, y - height/2, y - height/2, y, y + height/2, y + height/2, y };
         int nPoints = 6;
 
-//        painter.drawLine(x, y, x + width/3, y - height/2);
-//        painter.drawLine(x + width/3, y - height/2, x + width/3*2, y - height/2);
-//        painter.drawLine(x + width/3*2, y - height/2, x + width, y);
-//        painter.drawLine(x + width, y, x + width/3*2, y + height/2);
-//        painter.drawLine(x + width/3*2, y + height/2, x + width/3, y + height/2);
-//        painter.drawLine(x + width/3, y + height/2, x, y);
-
         painter.fillPolygon(xPoints, yPoints, nPoints);
         shape.paint(painter);
         painter.setColor(initial);
@@ -76,31 +69,25 @@ public class AccordianShape extends Shape{
         super.move(width, height);
         shape.move(width, height);
             if (originalX <= 0 && shapeOriginalX <= 5) {
-                originalX = 0;
-                shapeOriginalX = 5;
+
                 deltaX = -deltaX;
                 c = leftColor;
 
 
             } else if (originalX + this.width >= width && shapeOriginalX + shape.width >= width - 5) {
-                originalX = width - this.width;
-                shapeOriginalX = width - 5 - shape.width;
+
                 deltaX = -deltaX;
                 c = rightColor;
 
 
             }
             if (originalY <= 0 && shapeOriginalY <= 5) {
-                originalY = 0;
 
-                shapeOriginalY = 5;
                 deltaY = -deltaY;
                 c = topColor;
 
             } else if (originalY + this.height >= height && shapeOriginalY + shape.height >= height - 5) {
-                originalY = height - this.height;
 
-                shapeOriginalY = height - 5 - this.height;
                 deltaY = -deltaY;
                 c = bottomColor;
             }

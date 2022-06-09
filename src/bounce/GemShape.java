@@ -39,20 +39,20 @@ public class GemShape extends Shape{
     @Override
     public void paint(Painter painter) {
         if(width >= 40 ) {
-            painter.drawLine(x, y, x + width/3, y - height/2);
-            painter.drawLine(x + width/3, y - height/2, x + width/3*2, y - height/2);
-            painter.drawLine(x + width/3*2, y - height/2, x + width, y);
-            painter.drawLine(x + width, y, x + width/3*2, y + height/2);
-            painter.drawLine(x + width/3*2, y + height/2, x + width/3, y + height/2);
-            painter.drawLine(x + width/3, y + height/2, x, y);
+            painter.drawLine(x, y, x + width / 3, y - height / 2);
+            painter.drawLine(x + width / 3, y - height / 2, x + width / 3 * 2, y - height / 2);
+            painter.drawLine(x + width / 3 * 2, y - height / 2, x + width, y);
+            painter.drawLine(x + width, y, x + width / 3 * 2, y + height / 2);
+            painter.drawLine(x + width / 3 * 2, y + height / 2, x + width / 3, y + height / 2);
+            painter.drawLine(x + width / 3, y + height / 2, x, y);
 
 
 
         }else {
-            painter.drawLine(x,y,x + width/2, y);
-            painter.drawLine(x + width/2, y,x + width/2, y + height);
-            painter.drawLine(x + width/2,y + height, x, y + height);
-            painter.drawLine(x,y + height,x,y);
+            painter.drawLine(x,y,x + width / 2, y);
+            painter.drawLine(x + width / 2, y,x + width / 2, y + height);
+            painter.drawLine(x + width / 2,y + height, x, y + height);
+            painter.drawLine(x,y + height,x, y);
 
 
         }
@@ -65,18 +65,18 @@ public class GemShape extends Shape{
 
         if(this.width >= 40){
 
-            if(y + this.height/2 <= 0 ){
-                y = this.height/2;
+            if(y + this.height / 2 <= 0 ){
+                y = this.height / 2;
                 deltaY = -deltaY;
 
-            }else if (y + this.height/2 >= height ){
-                y = height - this.height/2;
+            }else if (y + this.height / 2 >= height ){
+                y = height - this.height / 2;
                 deltaY = -deltaY;
             }
         }else{
 
-            if(x + this.width/2 >= width){
-                x = width - this.width/2;
+            if(x + this.width / 2 >= width){
+                x = width - this.width / 2;
                 deltaX = -deltaX;
             }
 

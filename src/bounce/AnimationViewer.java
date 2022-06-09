@@ -57,11 +57,13 @@ public class AnimationViewer extends JPanel implements ActionListener {
 //        BorderShape c = new BorderShape(b,",,");
 //        shapes.add(new BorderShape(c,"oo"));
 
-        Shape inner = new GemShape(90,420,-4,4,75,80, Color.pink, Color.lightGray, Color.yellow, Color.cyan);
-        AccordianShape a1 = new AccordianShape(inner, Color.PINK, Color.LIGHT_GRAY, Color.YELLOW, Color.CYAN);
-        AccordianShape a2 = new AccordianShape(a1, Color.magenta, Color.gray, Color.orange, Color.GREEN);
-        AccordianShape a3 = new AccordianShape(a2, Color.MAGENTA, Color.GRAY, Color.ORANGE, Color.blue);
-        shapes.add(new AccordianShape(a3, Color.red, Color.black, Color.RED, Color.BLUE));
+
+//        Because GemShape is not colored as instructed, so the innermost gem shape is only an outline.
+        Shape inner = new GemShape(90,420,-4,4,75,80, Color.red, Color.black, Color.RED, Color.BLUE);
+        AccordianShape a1 = new AccordianShape(inner, Color.MAGENTA, Color.GRAY, Color.ORANGE, Color.blue);
+        AccordianShape a2 = new AccordianShape(a1, Color.magenta, Color.gray, Color.orange, Color.CYAN);
+        AccordianShape a3 = new AccordianShape(a2, Color.PINK, Color.LIGHT_GRAY, Color.YELLOW, Color.cyan);
+        shapes.add(new AccordianShape(a3, Color.pink, Color.lightGray, Color.yellow, Color.green));
 
 //        Instanialize AccordionShape w/ just outline:
 //        Shape inner = new RectangleShape(20,20,1,1,35,35);
