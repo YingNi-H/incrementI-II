@@ -1,6 +1,7 @@
 package bounce;
 
 import java.awt.*;
+import java.util.Arrays;
 
 /**
  * Implementation of the Painter interface that does not actually do any
@@ -70,4 +71,18 @@ public class MockPainter implements Painter {
     public void drawCenteredText(String str, int x, int y) {
         log.append("(string)");
     }
+
+
+
+    public void fillOval(int x, int y, int width, int height) {
+        log.append("(oval " + x + "," + y + "," + width + "," + height + ")");
+
+    }
+
+    public void fillPolygon(int[] xPoints, int[] yPoints, int nPoints){
+        log.append("(polygon " + Arrays.toString(xPoints) + "," + Arrays.toString(yPoints) + "," + nPoints + ")");
+
+    }
+
+
 }

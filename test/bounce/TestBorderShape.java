@@ -34,7 +34,7 @@ public class TestBorderShape {
         shape.move(135, 10000);
         border.paint(painter);
         shape.paint(painter);
-        assertEquals("(rectangle 98,98,29,39)(rectangle 100,20,25,35)(rectangle 100,20,25,35)(rectangle 98,98,29,39)(rectangle 110,35,25,35)(rectangle 110,35,25,35)(rectangle 98,98,29,39)(rectangle 98,50,25,35)(rectangle 98,50,25,35)", painter.toString());
+        assertEquals("(rectangle 98,18,29,39)(rectangle 100,20,25,35)(rectangle 100,20,25,35)(rectangle 98,18,29,39)(rectangle 110,35,25,35)(rectangle 110,35,25,35)(rectangle 98,18,29,39)(rectangle 98,50,25,35)(rectangle 98,50,25,35)", painter.toString());
     }
 
 
@@ -50,7 +50,7 @@ public class TestBorderShape {
         shape.move(10000, 10000);
         border.paint(painter);
         shape.paint(painter);
-        assertEquals("(rectangle 8,8,29,39)(rectangle 10,20,25,35)(rectangle 10,20,25,35)(rectangle 8,8,29,39)(rectangle 0,35,25,35)(rectangle 0,35,25,35)(rectangle 8,8,29,39)(rectangle 12,50,25,35)(rectangle 12,50,25,35)", painter.toString());
+        assertEquals("(rectangle 8,18,29,39)(rectangle 10,20,25,35)(rectangle 10,20,25,35)(rectangle 8,18,29,39)(rectangle 0,35,25,35)(rectangle 0,35,25,35)(rectangle 8,18,29,39)(rectangle 12,50,25,35)(rectangle 12,50,25,35)", painter.toString());
     }
 
 
@@ -82,7 +82,7 @@ public class TestBorderShape {
         shape.move(125, 135);
         border.paint(painter);
         shape.paint(painter);
-        assertEquals("(rectangle 8,8,29,39)(rectangle 10,90,25,35)(rectangle 10,90,25,35)(rectangle 8,8,29,39)(rectangle 0,100,25,35)(rectangle 0,100,25,35)(rectangle 8,8,29,39)(rectangle 12,85,25,35)(rectangle 12,85,25,35)", painter.toString());
+        assertEquals("(rectangle 8,88,29,39)(rectangle 10,90,25,35)(rectangle 10,90,25,35)(rectangle 8,88,29,39)(rectangle 0,100,25,35)(rectangle 0,100,25,35)(rectangle 8,88,29,39)(rectangle 12,85,25,35)(rectangle 12,85,25,35)", painter.toString());
     }
 
     @Test
@@ -97,7 +97,7 @@ public class TestBorderShape {
         shape.move(125, 135);
         border.paint(painter);
         shape.paint(painter);
-        assertEquals("(rectangle 8,8,29,39)(rectangle 10,90,25,35)(rectangle 10,90,25,35)(rectangle 8,8,29,39)(rectangle 0,100,25,35)(rectangle 0,100,25,35)(rectangle 8,8,29,39)(rectangle 12,85,25,35)(rectangle 12,85,25,35)", painter.toString());
+        assertEquals("(rectangle 8,88,29,39)(rectangle 10,90,25,35)(rectangle 10,90,25,35)(rectangle 8,88,29,39)(rectangle 0,100,25,35)(rectangle 0,100,25,35)(rectangle 8,88,29,39)(rectangle 12,85,25,35)(rectangle 12,85,25,35)", painter.toString());
     }
     @Test
     public void testShapeMoveWithBounceOffTopAndRight() {

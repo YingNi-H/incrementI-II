@@ -37,4 +37,8 @@ public interface Painter {
 
     public void drawCenteredText(String text, int x, int y);
 
+    public void fillOval(int x, int y, int width, int height);
+
+    public void fillPolygon(int[] xPoints, int[] yPoints, int Points);
+
 }

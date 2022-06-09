@@ -42,14 +42,12 @@ public class BorderShape extends Shape {
         if(x <= 0 && shape.x <= 2){
             x = 0;
             shape.x = 2;
-
             deltaX = -deltaX;
             shape.deltaX = -shape.deltaX;
 
-        } else if (x + this.width >= width && shape.x + this.width - 4 >= width - 2){
+        }else if (x + this.width >= width && shape.x + this.width - 4 >= width - 2){
             x = width - this.width;
             shape.x = width - 2 - (this.width - 4);
-
             deltaX = -deltaX;
             shape.deltaX = -shape.deltaX;
 
@@ -59,7 +57,7 @@ public class BorderShape extends Shape {
             deltaY = -deltaY;
             shape.deltaY = -shape.deltaY;
 
-        } else if (y + this.height >= height && shape.y + this.height - 4 >= height - 2){
+        }else if (y + this.height >= height && shape.y + this.height - 4 >= height - 2){
             y = height - this.height;
             shape.y = height - 2 - (this.height - 4);
             deltaY = -deltaY;

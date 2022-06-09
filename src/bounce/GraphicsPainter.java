@@ -78,4 +78,16 @@ public class GraphicsPainter implements Painter {
 
         g.drawString(text, xPos, yPos);
     }
+
+    @Override
+    public void fillOval(int x, int y, int width, int height) {
+        g.fillOval(x, y, width, height);
+
+    }
+
+    public void fillPolygon(int[] xPoints, int[] yPoints, int nPoints){
+        g.fillPolygon(xPoints, yPoints, nPoints);
+
+
+    }
 }

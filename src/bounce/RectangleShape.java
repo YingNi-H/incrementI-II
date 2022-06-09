@@ -1,5 +1,7 @@
 package bounce;
 
+import java.awt.*;
+
 /**
  * Class to represent a simple rectangle.
  *
@@ -10,6 +12,11 @@ public class RectangleShape extends Shape {
      * Default constructor that creates a RectangleShape instance whose instance
      * variables are set to default values.
      */
+    private Color leftColor;
+    private Color rightColor;
+    private Color topColor;
+    private Color bottomColor;
+
     public RectangleShape() {
         super();
     }
@@ -49,6 +56,14 @@ public class RectangleShape extends Shape {
         super(x, y, deltaX, deltaY, width, height, text);
     }
 
+    public RectangleShape(int x, int y, int deltaX, int deltaY, int width, int height, Color leftColor, Color rightColor, Color topColor, Color bottomColor){
+        super(x, y, deltaX, deltaY, width, height);
+        this.leftColor = leftColor;
+        this.rightColor = rightColor;
+        this.topColor = topColor;
+        this.bottomColor = bottomColor;
+    }
+
     /**
      * Paints this RectangleShape object using the supplied Painter object.
      */
@@ -57,6 +72,7 @@ public class RectangleShape extends Shape {
         painter.drawRect(x, y, width, height);
 
     }
+
 
 
 }

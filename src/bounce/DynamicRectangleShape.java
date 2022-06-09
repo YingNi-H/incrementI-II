@@ -43,9 +43,10 @@ public class DynamicRectangleShape extends Shape {
 
     }
 
-    public DynamicRectangleShape(int x, int y, int deltaX, int deltaY, int width, int height, Color leftC) {
+    public DynamicRectangleShape(int x, int y, int deltaX, int deltaY, int width, int height, Color leftC, String text) {
         super(x, y, deltaX, deltaY, width, height);
         this.leftC = leftC;
+        this.text = text;
 
 
 
