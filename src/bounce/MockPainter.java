@@ -50,6 +50,12 @@ public class MockPainter implements Painter {
     }
 
     @Override
+    public void clearRect(int x, int y, int width, int height) {
+        log.append("(rectangle " + x + "," + y + "," + width + "," + height + ")");
+
+    }
+
+    @Override
     public Color getColor() {
         return null;
     }
@@ -73,12 +79,13 @@ public class MockPainter implements Painter {
     }
 
 
-
+    @Override
     public void fillOval(int x, int y, int width, int height) {
         log.append("(oval " + x + "," + y + "," + width + "," + height + ")");
 
     }
 
+    @Override
     public void fillPolygon(int[] xPoints, int[] yPoints, int nPoints){
         log.append("(polygon " + Arrays.toString(xPoints) + "," + Arrays.toString(yPoints) + "," + nPoints + ")");
 

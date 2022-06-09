@@ -6,7 +6,7 @@ public class DynamicRectangleShape extends Shape {
 
     private Color c;
 
-    private Color leftC;
+    private Color color;
 
     private Color rightC;
 
@@ -28,75 +28,30 @@ public class DynamicRectangleShape extends Shape {
 
     }
 
-    public DynamicRectangleShape(int x, int y, int deltaX, int deltaY, int width, int height, Color leftC, Color rightC) {
+    public DynamicRectangleShape(int x, int y, int deltaX, int deltaY, int width, int height, Color color, Color rightC) {
         super(x, y, deltaX, deltaY, width, height);
-        this.leftC = leftC;
+        this.color = color;
         this.rightC = rightC;
 
 
     }
 
-    public DynamicRectangleShape(int x, int y, int deltaX, int deltaY, int width, int height, Color leftC, Color rightC, String text) {
+    public DynamicRectangleShape(int x, int y, int deltaX, int deltaY, int width, int height, Color color, Color rightC, String text) {
         super(x, y, deltaX, deltaY, width, height, text);
-        this.leftC = leftC;
+        this.color = color;
         this.rightC = rightC;
 
     }
 
-    public DynamicRectangleShape(int x, int y, int deltaX, int deltaY, int width, int height, Color leftC, String text) {
+    public DynamicRectangleShape(int x, int y, int deltaX, int deltaY, int width, int height, Color color, String text) {
         super(x, y, deltaX, deltaY, width, height);
-        this.leftC = leftC;
+        this.color = color;
         this.text = text;
 
 
 
     }
 
-
-//    public void paint(Painter painter) {
-//
-//        Color origin = painter.getColor();
-//        painter.setColor(c);
-//
-//        if(c != moveColor) {
-//            painter.fillRect(x, y, width, height);
-////            moveColor = painter.getColor();
-//            //colored line but not solid
-//
-//        }else{
-//            moveColor = painter.getColor();
-//            painter.setColor(moveColor);
-//            painter.drawRect(x, y, width, height);
-//        }
-//
-//        painter.setColor(origin);
-//
-//    }
-//
-//
-//    public void move(int width, int height) {
-//
-//        int originalSpeedX = deltaX;
-//        int originalSpeedY = deltaY;
-//        super.move(width, height);
-//
-//        if(originalSpeedX != deltaX && this.x <= 0){
-//            c = leftC;
-//        } else if(originalSpeedX != deltaX && this.x + this.width >= width){
-//            c = rightC;
-//        }
-//        if(originalSpeedY != deltaY && (this.y <= 0 || this.y + this.height >= height)){
-//            c = moveColor;
-//        }
-//        if((originalSpeedY != deltaY && this.y <= 0 ) && (originalSpeedX != deltaX && this.x <= 0) ||
-//                (originalSpeedY != deltaY && this.y + this.height >= height) && (originalSpeedX != deltaX && this.x <= 0)) {
-//            c = leftC;
-//        }
-//        if((originalSpeedY != deltaY && this.y <= 0 ) && (originalSpeedX != deltaX && this.x + this.width >= width) ||
-//                (originalSpeedY != deltaY && this.y + this.height >= height) && (originalSpeedX != deltaX && this.x + this.width >= width)){
-//            c = rightC;
-//
-//        }
 
 
         public void paint(Painter painter) {
@@ -107,9 +62,10 @@ public class DynamicRectangleShape extends Shape {
             if(c != moveColor) {
                 painter.fillRect(x, y, width, height);
 //            moveColor = painter.getColor();
-                //colored line but not solid
+//                //colored line but not solid
 
             }else{
+
                 moveColor = painter.getColor();
                 painter.setColor(moveColor);
                 painter.drawRect(x, y, width, height);
@@ -117,27 +73,52 @@ public class DynamicRectangleShape extends Shape {
 
             painter.setColor(origin);
 
+//            Color origin = painter.getColor();
+//            painter.setColor(color);
+//            painter.fillRect(x, y, width, height);
+//            moveColor = painter.getColor();
+//            painter.setColor(moveColor);
+//            painter.drawRect(x, y, width, height);
+//
+//
+//            painter.setColor(origin);
+
+
         }
 
 
-        public void move(int width, int height) {
+//        public void move(int width, int height) {
+//
+//            int originalSpeedX = deltaX;
+//            int originalSpeedY = deltaY;
+//            super.move(width, height);
+//
+//            if(originalSpeedX != deltaX ){
+//                c = color;
+//            }
+//            if(originalSpeedY != deltaY ){
+//                c = moveColor;
+//            }
+//            if((originalSpeedY != deltaY ) && (originalSpeedX != deltaX )){
+//                c = color;
+//            }
+//        }
 
-            int originalSpeedX = deltaX;
-            int originalSpeedY = deltaY;
-            super.move(width, height);
+    public void move(int width, int height) {
 
-            if(originalSpeedX != deltaX ){
-                c = leftC;
-            }
-            if(originalSpeedY != deltaY ){
-                c = moveColor;
-            }
-            if((originalSpeedY != deltaY ) && (originalSpeedX != deltaX )){
-                c = leftC;
-            }
+        int originalSpeedX = deltaX;
+        int originalSpeedY = deltaY;
+        super.move(width, height);
 
-
-
+        if(originalSpeedX != deltaX ){
+            c = color;
+        }
+        if(originalSpeedY != deltaY ){
+            c = moveColor;
+        }
+        if((originalSpeedY != deltaY ) && (originalSpeedX != deltaX )){
+            c = color;
+        }
     }
 
 

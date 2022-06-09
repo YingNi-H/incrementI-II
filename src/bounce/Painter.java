@@ -41,4 +41,6 @@ public interface Painter {
 
     public void fillPolygon(int[] xPoints, int[] yPoints, int Points);
 
+    public void clearRect(int x, int y, int width, int height);
+
 }

@@ -45,8 +45,8 @@ public class AccordianShape extends Shape{
     public void paint(Painter painter) {
         Color initial = painter.getColor();
         painter.setColor(c);
-        int[] xPoints = new int[]{x, x + width/3, x + width/3*2, x + width, x + width/3*2, x + width/3 };
-        int[] yPoints = new int[]{y, y - height/2, y - height/2, y, y + height/2, y + height/2, y };
+        int[] xPoints = new int[]{x, x + 20, x + width - 20, x + width, x + width - 20, x + 20};
+        int[] yPoints = new int[]{y + height / 2, y, y, y + height / 2, y + height, y + height};
         int nPoints = 6;
 
         painter.fillPolygon(xPoints, yPoints, nPoints);

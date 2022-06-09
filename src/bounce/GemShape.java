@@ -39,19 +39,19 @@ public class GemShape extends Shape{
     @Override
     public void paint(Painter painter) {
         if(width >= 40 ) {
-            painter.drawLine(x, y, x + width / 3, y - height / 2);
-            painter.drawLine(x + width / 3, y - height / 2, x + width / 3 * 2, y - height / 2);
-            painter.drawLine(x + width / 3 * 2, y - height / 2, x + width, y);
-            painter.drawLine(x + width, y, x + width / 3 * 2, y + height / 2);
-            painter.drawLine(x + width / 3 * 2, y + height / 2, x + width / 3, y + height / 2);
-            painter.drawLine(x + width / 3, y + height / 2, x, y);
+            painter.drawLine(x, y + height / 2, x + 20, y);
+            painter.drawLine(x + 20, y, x + width - 20, y);
+            painter.drawLine(x + width -20, y, x + width, y + height / 2);
+            painter.drawLine(x + width, y + height / 2, x + width - 20, y + height);
+            painter.drawLine(x + width - 20, y + height, x + 20, y + height);
+            painter.drawLine(x + 20, y + height, x, y + height / 2);
 
 
 
         }else {
-            painter.drawLine(x,y,x + width / 2, y);
-            painter.drawLine(x + width / 2, y,x + width / 2, y + height);
-            painter.drawLine(x + width / 2,y + height, x, y + height);
+            painter.drawLine(x,y,x + width, y);
+            painter.drawLine(x + width, y,x + width, y + height);
+            painter.drawLine(x + width,y + height, x, y + height);
             painter.drawLine(x,y + height,x, y);
 
 
@@ -59,27 +59,27 @@ public class GemShape extends Shape{
 
     }
 
-    @Override
-    public void move(int width, int height) {
-        super.move(width, height);
-
-        if(this.width >= 40){
-
-            if(y + this.height / 2 <= 0 ){
-                y = this.height / 2;
-                deltaY = -deltaY;
-
-            }else if (y + this.height / 2 >= height ){
-                y = height - this.height / 2;
-                deltaY = -deltaY;
-            }
-        }else{
-
-            if(x + this.width / 2 >= width){
-                x = width - this.width / 2;
-                deltaX = -deltaX;
-            }
-
-        }
-    }
+//    @Override
+//    public void move(int width, int height) {
+//        super.move(width, height);
+//
+//        if(this.width >= 40){
+//
+//            if(y + this.height / 2 <= 0 ){
+//                y = this.height / 2;
+//                deltaY = -deltaY;
+//
+//            }else if (y + this.height / 2 >= height ){
+//                y = height - this.height / 2;
+//                deltaY = -deltaY;
+//            }
+//        }else{
+//
+//            if(x + this.width / 2 >= width){
+//                x = width - this.width / 2;
+//                deltaX = -deltaX;
+//            }
+//
+//        }
+//    }
 }
