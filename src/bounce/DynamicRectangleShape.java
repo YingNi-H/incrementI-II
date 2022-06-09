@@ -12,6 +12,11 @@ public class DynamicRectangleShape extends Shape {
 
     private Color moveColor;
 
+    private int originalSpeedX = deltaX;
+    private int originalSpeedY = deltaY;
+
+
+
 
     public DynamicRectangleShape() {
         super();
@@ -56,15 +61,29 @@ public class DynamicRectangleShape extends Shape {
 
         public void paint(Painter painter) {
 
+//            Color origin = painter.getColor();
+//            painter.setColor(c);
+//
+//            if(c != moveColor) {
+//                painter.fillRect(x, y, width, height);
+////            moveColor = painter.getColor();
+////                //colored line but not solid
+//
+//            }else{
+//
+//                moveColor = painter.getColor();
+//                painter.setColor(moveColor);
+//                painter.drawRect(x, y, width, height);
+//            }
+//
+//            painter.setColor(origin);
+
             Color origin = painter.getColor();
             painter.setColor(c);
-
-            if(c != moveColor) {
+            if(originalSpeedX == -deltaX) {
                 painter.fillRect(x, y, width, height);
-//            moveColor = painter.getColor();
-//                //colored line but not solid
 
-            }else{
+            } else if(originalSpeedY == -deltaY){
 
                 moveColor = painter.getColor();
                 painter.setColor(moveColor);
@@ -73,15 +92,6 @@ public class DynamicRectangleShape extends Shape {
 
             painter.setColor(origin);
 
-//            Color origin = painter.getColor();
-//            painter.setColor(color);
-//            painter.fillRect(x, y, width, height);
-//            moveColor = painter.getColor();
-//            painter.setColor(moveColor);
-//            painter.drawRect(x, y, width, height);
-//
-//
-//            painter.setColor(origin);
 
 
         }
@@ -106,19 +116,16 @@ public class DynamicRectangleShape extends Shape {
 
     public void move(int width, int height) {
 
-        int originalSpeedX = deltaX;
-        int originalSpeedY = deltaY;
+//        int originalSpeedX = deltaX;
+//        int originalSpeedY = deltaY;
         super.move(width, height);
 
         if(originalSpeedX != deltaX ){
             c = color;
-        }
-        if(originalSpeedY != deltaY ){
+        } else if(originalSpeedY != deltaY ){
             c = moveColor;
         }
-        if((originalSpeedY != deltaY ) && (originalSpeedX != deltaX )){
-            c = color;
-        }
+
     }
 
 

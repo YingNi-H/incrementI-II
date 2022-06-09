@@ -48,14 +48,14 @@ public class AnimationViewer extends JPanel implements ActionListener {
 //        shapes.add(new OvalShape(20,20,2,3,80,120,"#_#"));
 //        shapes.add(new OvalShape(30, 30,3,2,80,50,"XX"));
         shapes.add(new GemShape(40,40,3,3,80,50,"Gem"));
-        shapes.add(new GemShape(50,50,4,4,30,39));
+        shapes.add(new GemShape(50,50,4,4,30,39,"oo"));
         shapes.add(new DynamicRectangleShape(5,5,3,3,100,100, Color.GREEN,"^_^"));
         shapes.add(new DynamicRectangleShape(5,5,4,-5,80,80, Color.MAGENTA, ""));
 
         Shape r = new RectangleShape(15,15,2,2,76,76);
         BorderShape b = new BorderShape(r, "..");
         BorderShape c = new BorderShape(b,",,");
-        shapes.add(new BorderShape(c,"oo"));
+        shapes.add(new BorderShape(c,"(())"));
 
 
 //        Because GemShape is not colored as instructed, so the innermost gem shape is only an outline.
