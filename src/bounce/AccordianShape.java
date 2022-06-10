@@ -11,10 +11,6 @@ public class AccordianShape extends Shape{
     private Shape shape;
 
 
-    public AccordianShape() {
-    }
-
-
     public AccordianShape(Shape shape, Color leftColor, Color rightColor, Color topColor, Color bottomColor){
 
         this.x = shape.x - 5;

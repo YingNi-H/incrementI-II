@@ -4,17 +4,11 @@ import java.awt.*;
 
 public class DynamicRectangleShape extends Shape {
 
-    private Color c;
-
     private Color color;
 
     private Color rightC;
 
-    private Color moveColor;
-
     private boolean isfilled;
-
-
 
 
 
@@ -53,8 +47,6 @@ public class DynamicRectangleShape extends Shape {
         this.color = color;
         this.text = text;
 
-
-
     }
 
 
@@ -64,22 +56,14 @@ public class DynamicRectangleShape extends Shape {
             Color origin = painter.getColor();
             painter.setColor(color);
 
-
             if(isfilled) {
                 painter.fillRect(x, y, width, height);
 
-
             }else{
-
-
                 painter.drawRect(x, y, width, height);
             }
 
             painter.setColor(origin);
-
-
-
-
 
         }
 

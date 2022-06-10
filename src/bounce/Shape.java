@@ -196,33 +196,13 @@ public abstract class Shape {
 
         List<Shape> path = new ArrayList<>();
 
-//        List<Shape> newPath = new ArrayList<>();
-//        for (int i = path.size() - 1; i >= 0 ; i--) {
-//            if(i == 0) {
-//                List<Shape> root = new ArrayList<>();
-//                root.add(parent);
-//                path = root;
-//            }
-//
-//        }
+
         if (parent != null) {
             List<Shape> parentsPath = parent.path();
             path.addAll(parentsPath);
         }
         path.add(this);
 
-
-//        for (int i = (path.size() - 1); i >= 0 ; i--) {
-//            if(i == 0){
-//                path = new ArrayList<>(1);
-//                path.add(parent);
-//                return path;
-//            }else{
-//                Shape s = path.get(i);
-//                path = s.path();
-//            }
-//
-//        }
 
         return path;
 

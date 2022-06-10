@@ -59,27 +59,5 @@ public class GemShape extends Shape{
 
     }
 
-//    @Override
-//    public void move(int width, int height) {
-//        super.move(width, height);
-//
-//        if(this.width >= 40){
-//
-//            if(y + this.height / 2 <= 0 ){
-//                y = this.height / 2;
-//                deltaY = -deltaY;
-//
-//            }else if (y + this.height / 2 >= height ){
-//                y = height - this.height / 2;
-//                deltaY = -deltaY;
-//            }
-//        }else{
-//
-//            if(x + this.width / 2 >= width){
-//                x = width - this.width / 2;
-//                deltaX = -deltaX;
-//            }
-//
-//        }
-//    }
+
 }

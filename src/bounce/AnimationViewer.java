@@ -43,10 +43,10 @@ public class AnimationViewer extends JPanel implements ActionListener {
         shapes = new ArrayList<Shape>();
 
         // Populate the list of Shapes.
-//        shapes.add(new RectangleShape(0, 0, 2, 3));
-//        shapes.add(new RectangleShape(10, 10, 3, -1));
-//        shapes.add(new OvalShape(20,20,2,3,80,120,"#_#"));
-//        shapes.add(new OvalShape(30, 30,3,2,80,50,"XX"));
+        shapes.add(new RectangleShape(0, 0, 2, 3));
+        shapes.add(new RectangleShape(10, 10, 3, -1));
+        shapes.add(new OvalShape(20,20,2,3,80,120,"#_#"));
+        shapes.add(new OvalShape(30, 30,3,2,80,50,"XX"));
         shapes.add(new GemShape(40,40,3,3,80,50,"Gem"));
         shapes.add(new GemShape(50,50,4,4,30,39,"oo"));
         shapes.add(new DynamicRectangleShape(5,5,3,3,100,100, Color.GREEN,"^_^"));
