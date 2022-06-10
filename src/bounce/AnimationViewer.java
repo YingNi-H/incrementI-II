@@ -50,7 +50,7 @@ public class AnimationViewer extends JPanel implements ActionListener {
         shapes.add(new GemShape(40,40,3,3,80,50,"Gem"));
         shapes.add(new GemShape(50,50,4,4,30,39,"oo"));
         shapes.add(new DynamicRectangleShape(5,5,3,3,100,100, Color.GREEN,"^_^"));
-        shapes.add(new DynamicRectangleShape(5,5,4,-5,80,80, Color.MAGENTA, ""));
+        shapes.add(new DynamicRectangleShape(5,5,4,-5,80,80, Color.MAGENTA, "$_$"));
 
         Shape r = new RectangleShape(15,15,2,2,76,76);
         BorderShape b = new BorderShape(r, "..");
