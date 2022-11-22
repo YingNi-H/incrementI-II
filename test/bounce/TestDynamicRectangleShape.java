@@ -57,13 +57,13 @@ public class TestDynamicRectangleShape {
     }
     @Test
     public void testShapeMoveWithBounceOffTop() {
-        DynamicRectangleShape shape = new DynamicRectangleShape(50, 90, 0, 15,25, 35, Color.blue, "");
+        DynamicRectangleShape shape = new DynamicRectangleShape(50, 10, 0, -15,25, 35, Color.blue, "");
         shape.paint(painter);
         shape.move(125, 135);
         shape.paint(painter);
         shape.move(125, 135);
         shape.paint(painter);
-        assertEquals("(dynamicrectangle java.awt.Color[r=0,g=0,b=255])(rectangle 50,90,25,35)(dynamicrectangle null)(dynamicrectangle java.awt.Color[r=0,g=0,b=255])(rectangle 50,100,25,35)(dynamicrectangle null)(dynamicrectangle java.awt.Color[r=0,g=0,b=255])(rectangle 50,85,25,35)(dynamicrectangle null)", painter.toString());
+        assertEquals("(dynamicrectangle java.awt.Color[r=0,g=0,b=255])(rectangle 50,10,25,35)(dynamicrectangle null)(dynamicrectangle java.awt.Color[r=0,g=0,b=255])(rectangle 50,0,25,35)(dynamicrectangle null)(dynamicrectangle java.awt.Color[r=0,g=0,b=255])(rectangle 50,15,25,35)(dynamicrectangle null)", painter.toString());
     }
 
 

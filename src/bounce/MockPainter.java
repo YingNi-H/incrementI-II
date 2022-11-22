@@ -26,7 +26,7 @@ public class MockPainter implements Painter {
      * Logs the drawRect call.
      */
     public void drawRect(int x, int y, int width, int height) {
-        log.append("(rectangle " + x + "," + y + "," + width + "," + height + ")");
+        log.append("(text " + x + "," + y + "," + width + "," + height + ")");
     }
 
     /**

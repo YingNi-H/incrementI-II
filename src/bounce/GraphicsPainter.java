@@ -69,7 +69,7 @@ public class GraphicsPainter implements Painter {
         int descent = fm.getDescent();
 
         int xPos = x - fm.stringWidth(text) / 2;
-        int yPos = y;
+        int yPos = y ;
 
         if( ascent > descent )
             yPos += (ascent - descent) / 2;

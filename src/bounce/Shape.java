@@ -99,7 +99,6 @@ public abstract class Shape {
     public void move(int width, int height) {
         int nextX = x + deltaX;
         int nextY = y + deltaY;
-
         if (nextX <= 0) {
             nextX = 0;
             deltaX = -deltaX;
@@ -107,7 +106,6 @@ public abstract class Shape {
             nextX = width - this.width;
             deltaX = -deltaX;
         }
-
         if (nextY <= 0) {
             nextY = 0;
             deltaY = -deltaY;
@@ -115,7 +113,6 @@ public abstract class Shape {
             nextY = height - this.height;
             deltaY = -deltaY;
         }
-
         x = nextX;
         y = nextY;
     }
@@ -128,10 +125,13 @@ public abstract class Shape {
      */
     public abstract void paint(Painter painter);
 
-    public void drawText(Painter painter){
-
-        painter.drawCenteredText(text, x, y);
-
+    public final void doPaint(Painter painter) {
+        paint(painter);
+        if (text != null) {
+            painter.drawCenteredText(text, x + width / 2, y
+                    + height / 2);
+            System.out.println("doPaint writes words!");
+        }
     }
 
     /**
@@ -188,26 +188,16 @@ public abstract class Shape {
     }
 
     public NestingShape parent (){
-
         return this.parent;
     }
 
     public List<Shape> path(){
-
         List<Shape> path = new ArrayList<>();
-
-
         if (parent != null) {
             List<Shape> parentsPath = parent.path();
             path.addAll(parentsPath);
         }
         path.add(this);
-
-
         return path;
-
     }
-
-
-
 }

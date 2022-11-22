@@ -39,20 +39,20 @@ public class GemShape extends Shape{
     @Override
     public void paint(Painter painter) {
         if(width >= 40 ) {
-            painter.drawLine(x, y + height / 2, x + 20, y);
             painter.drawLine(x + 20, y, x + width - 20, y);
-            painter.drawLine(x + width -20, y, x + width, y + height / 2);
-            painter.drawLine(x + width, y + height / 2, x + width - 20, y + height);
+            painter.drawLine(x + width - 20, y, x + width, y + height/2);
+            painter.drawLine(x + width, y + height/2, x + width - 20, y + height);
             painter.drawLine(x + width - 20, y + height, x + 20, y + height);
-            painter.drawLine(x + 20, y + height, x, y + height / 2);
+            painter.drawLine(x + 20, y + height, x, y + height/2);
+            painter.drawLine(x, y + height/2, x + 20, y);
 
 
 
         }else {
-            painter.drawLine(x,y,x + width, y);
-            painter.drawLine(x + width, y,x + width, y + height);
-            painter.drawLine(x + width,y + height, x, y + height);
-            painter.drawLine(x,y + height,x, y);
+            painter.drawLine(x + width/2, y, x + width, y + height/2);
+            painter.drawLine(x + width, y + height/2,x + width/2, y + height);
+            painter.drawLine(x + width/2, y + height, x, y + height/2);
+            painter.drawLine(x, y + height/2, x + width/2, y);
 
 
         }
